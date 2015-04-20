@@ -1,0 +1,6 @@
+data/
+reports/figure/
+sent/
+.Rproj.user
+.Rhistory
+.RData

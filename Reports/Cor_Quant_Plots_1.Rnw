@@ -1,0 +1,226 @@
+<<echo=FALSE,error=FALSE,message=FALSE,warning=FALSE>>=
+
+library(forecast)
+library(xtable)
+library(ggplot2)
+library(gridExtra)
+library(XLConnect)
+
+options(encoding = "UTF-8")
+
+
+load("../Data/Data.RData")
+
+source("../Scripts/Functions/Model_and_Plot.R")
+source("../Scripts/Functions/Lag_X.R")
+source("../Scripts/Functions/Quant_Sim.R")
+
+Classe_Prod <- list(c("BHL", "BHL"),
+                    c("BHL", "BHL_CAT"),
+                    c("SSL", "SSL216"),
+                    c("SSL", "SSL216_CAT"))
+
+
+
+@
+
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+
+\begin{document}
+
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+
+
+    OOS_0  <- as.numeric(Inputs[Inputs$Input == "Out_of_Sample", "Val"])
+    
+    # S
+    S_Name <- "BHL_CAT_1"
+    S <- Cat[["BHL_1"]][,"BHL_CAT"]
+    Xreg <- X[["DEP_EQUIP_CAP_1"]]
+    
+    OOS <- 2 * OOS_0/1
+    
+    #Exponential smoothing
+    fit.ets <- Model_and_Plot(S = S, S_Name = S_Name, Model = "ets", Horizon_year = 1, Simulate = TRUE)
+    
+    #Exponential smoothing out_of_sample
+    fit.ets.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "ets", Horizon_year = 2)
+      
+    #Arima
+    fit.arima <- Model_and_Plot(S = S, S_Name = S_Name, Model = "arima", Horizon_year = 1, Simulate = TRUE)
+    
+    #Arima out of sample
+    fit.arima.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "arima", Horizon_year = 2)
+     
+    
+    #Arimax
+    fit.arimax <- Model_and_Plot(S = S, S_Name = S_Name, Model = "arimax",Xreg = Xreg, Xreg_Name ="X = I + D", Dummy = TRUE, Horizon_year = 1, Simulate = TRUE)
+    
+    #Arimax out of sample
+    fit.arimax.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "arimax", Xreg = Xreg, Xreg_Name ="X = I + D", Dummy = TRUE, Horizon_year = 2)
+     
+    
+    #Exponential smoothing nn
+    fit.nnetar <- Model_and_Plot(S = S, S_Name = S_Name, Model = "nnetar", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample nn
+    fit.nnetar.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "nnetar", Horizon_year = 2)
+    
+     
+    
+    #Plots:
+    grid.arrange(fit.ets.oos$Plot, fit.ets$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.arima.oos$Plot, fit.arima$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.arimax.oos$Plot, fit.arimax$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    grid.arrange(fit.nnetar.oos$Plot, fit.nnetar$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    wb <- loadWorkbook(filename = "LTD_BHL_CAT_1.xlsx", create = TRUE)
+    createSheet(wb, name = "ets")
+    writeWorksheet(wb,data = t(fit.ets$Sim), sheet = "ets")
+    createSheet(wb, name = "arima")
+    writeWorksheet(wb,data = t(fit.arima$Sim), sheet = "arima")
+    createSheet(wb, name = "arimax")
+    writeWorksheet(wb,data = t(fit.arimax$Sim), sheet = "arimax")
+    saveWorkbook(wb)
+    
+    # S
+    S_Name <- "PM_BHL_1"
+    S <- Cat[["BHL_1"]][,"BHL_CAT"]
+    S <- S / Cat[["BHL_1"]][,"BHL"]*100
+    Xreg <- X[["DEP_EQUIP_CAP_1"]]
+
+    
+    OOS <- 2 * OOS_0/1
+    
+    #Exponential smoothing
+    fit.ets <- Model_and_Plot(S = S, S_Name = S_Name, Model = "ets", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample
+    fit.ets.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "ets", Horizon_year = 2)
+      
+    #Arima
+    fit.arima <- Model_and_Plot(S = S, S_Name = S_Name, Model = "arima", Horizon_year = 1)
+    
+    #Arima out of sample
+    fit.arima.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "arima", Horizon_year = 2)
+     
+    
+    #Arimax
+    fit.arimax <- Model_and_Plot(S = S, S_Name = S_Name, Model = "arimax",Xreg = Xreg, Xreg_Name ="X = D", Horizon_year = 1)
+    
+    #Arimax out of sample
+    fit.arimax.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "arimax", Xreg = Xreg, Xreg_Name ="X = D", Horizon_year = 2)
+     
+    
+    #Exponential smoothing nn
+    fit.nnetar <- Model_and_Plot(S = S, S_Name = S_Name, Model = "nnetar", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample nn
+    fit.nnetar.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "nnetar", Horizon_year = 2)
+    
+     
+    
+    #Plots:
+    grid.arrange(fit.ets.oos$Plot, fit.ets$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.arima.oos$Plot, fit.arima$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.arimax.oos$Plot, fit.arimax$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    grid.arrange(fit.nnetar.oos$Plot, fit.nnetar$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    
+    
+    # S
+    S_Name <- "BHL_CAT_3"
+    S <- Cat[["BHL_3"]][,"BHL_CAT"]
+    Xreg <- X[["DEP_EQUIP_CAP_3"]]
+    Xreg <- Lag_X(Xreg,Lags = 12, Var_Name = "D")[,c(4,5,7)]
+    
+    OOS <- 2 * OOS_0/3
+    
+    #Exponential smoothing
+    fit.ets <- Model_and_Plot(S = S, S_Name = S_Name, Model = "ets", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample
+    fit.ets.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "ets", Horizon_year = 2)
+      
+    #Arima
+    fit.arima <- Model_and_Plot(S = S, S_Name = S_Name, Model = "arima", Horizon_year = 1)
+    
+    #Arima out of sample
+    fit.arima.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "arima", Horizon_year = 2)
+     
+    
+    #Arimax
+    fit.arimax <- Model_and_Plot(S = S, S_Name = S_Name, Model = "arimax",Xreg = Xreg, Xreg_Name ="X = I + D(-3,-4,-6)" , Horizon_year = 1)
+    
+    #Arimax out of sample
+    fit.arimax.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "arimax", Xreg = Xreg, Xreg_Name ="X = I + D(-3,-4,-6)" ,  Horizon_year = 2)
+     
+    
+    #Exponential smoothing nn
+    fit.nnetar <- Model_and_Plot(S = S, S_Name = S_Name, Model = "nnetar", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample nn
+    fit.nnetar.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "nnetar", Horizon_year = 2)
+    
+     
+    
+    #Plots:
+    grid.arrange(fit.ets.oos$Plot, fit.ets$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.arima.oos$Plot, fit.arima$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.arimax.oos$Plot, fit.arimax$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    grid.arrange(fit.nnetar.oos$Plot, fit.nnetar$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+
+
+
+    
+  
+@
+
+
+\end{document}
+

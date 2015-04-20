@@ -1,0 +1,612 @@
+<<echo=FALSE,error=FALSE,message=FALSE,warning=FALSE>>=
+
+library(tikzDevice)
+library(forecast)
+library(xtable)
+
+
+# library(ggplot2)
+# library(knitr)
+
+load("../Data/Data.RData")
+
+Classe_Prod <- list(c("BHL", "BHL_CAT"),
+                    c("BHL", "BHL"),
+                    c("SSL", "SSL216"),
+                    c("SSL", "SSL216_CAT"))
+
+# Classe_Prod <- list(c("BHL", "BHL"))
+@
+
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+
+\begin{document}
+
+
+\tableofcontents
+
+\newpage
+
+\section{Notes}
+
+\subsection{Model description ETS(U,V,W)}
+\begin{itemize}
+  \item The first letter U denotes the error type: A (Additive), M (Multiplicative)
+  \item The second letter V denotes the trend type: N (None), A (Additive), Ad (Additive damped), M (Multiplicative), Md (Multiplicative damped)
+  \item The third letter W denotes the season type: N (None), A (Additive), M (Multiplicative)
+\end{itemize}
+
+\subsection{Model description ARIMA(p,d,q)(P,D,Q)m}
+\begin{itemize}
+  \item p is the AR order
+  \item d is the degree of differencing
+  \item q is the MA order
+  \item P is the seasonal AR order
+  \item D is the seasonal degree of differencing
+  \item Q is the seasonal MA order
+  \item m is the seasonal frequency
+\end{itemize}
+
+\subsection{Model description HoltWinters}
+\begin{itemize}
+  \item alpha is the parameter of Holt-Winters Filter
+  \item beta is the parameter of Holt-Winters Filter
+  \item gamma is a parameter used for the seasonal component
+  \item seasonal: ADDitive or MULtiplicative
+
+\end{itemize}
+
+\newpage
+
+\section{Results for automatic ETS, ARIMA and HoltWinters}
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+
+for(i in Classe_Prod) {
+  for(j in c(1, 2, 3, 4, 6, 12)) {
+
+    # Section et sous section du doc latex
+    
+    sub_name <- paste(c(strsplit(i[2], "_")[[1]], j), collapse="\\AaA ")
+    
+    cat("\\subsection{",sub_name,"}\n",sep="")
+    cat("\\subsubsection{plots for ",sub_name,"}\n",sep="")
+    
+    # Models
+   
+    fit <- ets(Cat[[paste(i[1], j, sep = "_")]][, i[2]])
+    fit.ar <- auto.arima(Cat[[paste(i[1], j, sep = "_")]][, i[2]])
+    fit.hw.e <- try(HoltWinters(Cat[[paste(i[1], j, sep = "_")]][, i[2]],beta = FALSE,gamma = FALSE),silent = TRUE)
+    fit.hw.n <- try(HoltWinters(Cat[[paste(i[1], j, sep = "_")]][, i[2]],gamma = FALSE),silent = TRUE)
+    fit.hw.a <- try(HoltWinters(Cat[[paste(i[1], j, sep = "_")]][, i[2]], seasonal = "additive"),silent = TRUE)
+    fit.hw.m <- try(HoltWinters(Cat[[paste(i[1], j, sep = "_")]][, i[2]], seasonal = "multiplicative"),silent = TRUE)
+    
+
+    # Nom variables
+  
+    Arima_Model <- paste("$ARIMA(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")_{",
+                         fit.ar$arma[5],"}$",
+                         sep="")
+
+    Arima_Model_t <- paste("ARIMA(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")",
+                         fit.ar$arma[5],
+                         sep="")
+    # plot parameters
+    
+    par(oma = c(0.5, 0.5, 0, 0), mar = c(4, 4, 2, 0.5))
+    layout(matrix(c(1,2,3,4,5,6), 3, 2, byrow = TRUE),heights=c(2, 2, 2, 2,2))
+    
+    My_Colours <- c("red", "blue", "blue ") 
+    My_Lty <- c(1,5,1)
+
+    # ETS plot:
+
+    ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+            forecast(fit)$mean,
+            fit$fitted,
+            col = My_Colours,
+            lwd = 2,
+            lty = My_Lty,
+            ylab = paste(i[2], j, sep = "_"),
+            main = paste(paste(i[2], j, sep = "_"), fit$method, sep="   "))
+    
+    legend("topleft", inset = .01,
+       c(paste(i[2], j, sep = "_"), "ETS"),
+       fill = c("red", "blue"))
+    
+    # Arima plot:
+    
+    ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+            forecast(fit.ar)$mean,
+            fitted(fit.ar),
+            col = My_Colours,
+            lwd = 2,
+            lty = My_Lty,
+            ylab = paste(i[2], j, sep = "_"),
+            main = paste(paste(i[2], j, sep = "_"), Arima_Model_t , sep="   "))
+    
+    legend("topleft", inset = .01,
+       c(paste(i[2], j, sep = "_"), "ARIMA"),
+       fill = c("red", "blue"))
+
+    
+    # HW exp:
+    if(class(fit.hw.e)=="HoltWinters") {
+        ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+                forecast(fit.hw.e)$mean,
+                fitted(fit.hw.n)[,"xhat"],
+                col = My_Colours,
+                lwd = 2,
+                lty = My_Lty,
+                ylab = paste(i[2], j, sep = "_"),
+                main = paste(paste(i[2], j, sep = "_"), "HoltWinters EXP", sep="   "))
+        
+        legend("topleft", inset = .01,
+           c(paste(i[2], j, sep = "_"), "HW EXP"),
+           fill = c("red", "blue"))
+    } else {
+      plot.new()
+    } 
+    
+    # HW plot:
+    if(class(fit.hw.n)=="HoltWinters") {
+        ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+                forecast(fit.hw.n)$mean,
+                fitted(fit.hw.n)[,"xhat"],
+                col = My_Colours,
+                lwd = 2,
+                lty = My_Lty,
+                ylab = paste(i[2], j, sep = "_"),
+                main = paste(paste(i[2], j, sep = "_"), "HoltWinters N", sep="   "))
+        
+        legend("topleft", inset = .01,
+           c(paste(i[2], j, sep = "_"), "HW N"),
+           fill = c("red", "blue"))
+    } else {
+      plot.new()
+    } 
+    
+    # HW ADD plot:
+    if(class(fit.hw.a)=="HoltWinters") {
+        ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+                forecast(fit.hw.a)$mean,
+                fitted(fit.hw.a)[,"xhat"],
+                col = My_Colours,
+                lwd = 2,
+                lty = My_Lty,
+                ylab = paste(i[2], j, sep = "_"),
+                main = paste(paste(i[2], j, sep = "_"), "HoltWinters ADD", sep="   "))
+        
+        legend("topleft", inset = .01,
+           c(paste(i[2], j, sep = "_"), "HW ADD"),
+           fill = c("red", "blue"))
+    } else {
+      plot.new()
+    } 
+    
+    # HW MUL plot:
+    if(class(fit.hw.m)=="HoltWinters") {
+        ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+                forecast(fit.hw.m)$mean,
+                fitted(fit.hw.m)[,"xhat"],
+                col = My_Colours,
+                lwd = 2,
+                lty = My_Lty,
+                ylab = paste(i[2], j, sep = "_"),
+                main = paste(paste(i[2], j, sep = "_"), "HoltWinters MUL", sep="   "))
+        
+        legend("topleft", inset = .01,
+           c(paste(i[2], j, sep = "_"), "HW MUL"),
+           fill = c("red", "blue"))
+    } else {
+      plot.new()
+    } 
+    
+        # acf and pcf plots 
+
+#     acf(Cat[[paste(i[1], j, sep = "_")]][, i[2]], main = "")
+#     pacf(Cat[[paste(i[1], j, sep = "_")]][, i[2]], main = "")
+    
+    box("outer", lty="solid")
+
+    cat("\n\\newpage\n")
+
+    # plot outputs
+  
+    cat("\\subsubsection{Outputs for ",sub_name,"}\n",sep="")
+
+    cat("\\begin{multicols*}{4}\n")
+  
+    # ETS outputs
+
+    cat("\n\n$",fit$method,"$\n")
+    
+    cat("\\begin{enumerate}\n")
+
+          cat("\\item parameters:\n")
+
+              cat("\\begin{itemize}\n")
+                  for(k in intersect(names(fit$par),c("alpha", "beta", "gamma", "phi", "lambda"))) {
+                    cat("\\item ", k,": ", fit$par[k],"\n")
+                  }
+              cat("\\end{itemize}\n")
+              cat("\\item init state:\n")
+              cat("\\begin{itemize}\n")
+                  for(k in names(fit$initstate)) {
+                    cat("\\item ", k,": ", fit$initstate[k],"\n")
+                  }
+              cat("\\end{itemize}\n")
+      
+          cat("\\item informations critereas:\n")
+      
+              cat("\\begin{itemize}\n")
+                  for(k in c("loglik", "aic", "bic", "aicc", "mse", "amse", "sigma2")) {
+                    cat("\\item ", k,": ", fit[[k]],"\n")
+                  }
+              cat("\\end{itemize}\n")
+
+          cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+                  for(k in dimnames(accuracy(forecast(fit)))[[2]]) {
+                    cat("\\item ", k,": ", accuracy(forecast(fit))[,k],"\n")
+                  }
+              cat("\\end{itemize}\n")
+    cat("\\end{enumerate}\n")
+
+#     cat("\n\\columnbreak\n")
+    
+    # !!! p, q, P, Q, m, d, D
+
+        
+    # ARIMA outputs
+
+    cat("\n\n",Arima_Model,"\n")
+
+    cat("\\begin{enumerate}\n")
+
+          cat("\\item informations critereas:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("loglik", "aic", "bic", "aicc", "sigma2")) {
+                cat("\\item ", k,": ", fit.ar[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+          
+          cat("\n\\item coefficients:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in names(fit.ar$coef)) {
+                cat("\\item ", k,": ", fit.ar$coef[k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+      
+          cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(forecast(fit.ar)))[[2]]) {
+                cat("\\item ", k,": ", accuracy(forecast(fit.ar))[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+    
+    cat("\\end{enumerate}\n")
+      
+    cat("\\columnbreak\n")
+    
+    # HoltWinters exp
+
+    if(class(fit.hw.e)=="HoltWinters") {
+     
+    cat("\n\n$HoltWinters EXP$\n")
+
+    cat("\\begin{enumerate}\n")
+          
+          cat("\\item parameters:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("alpha", "beta", "gamma")) {
+                cat("\\item ", k,": ", fit.hw.e[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+
+          cat("\\item informations critereas:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("SSE")) {
+                cat("\\item ", k,": ", fit.hw.e[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+          
+          cat("\n\\item coefficients:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in names(fit.hw.e$coefficients)) {
+                cat("\\item ", k,": ", fit.hw.e$coefficients[k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+      
+          cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(forecast(fit.hw.e)))[[2]]) {
+                cat("\\item ", k,": ", accuracy(forecast(fit.hw.e))[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+    cat("\\end{enumerate}\n")
+    }
+
+    # HoltWinters N
+
+    if(class(fit.hw.n)=="HoltWinters") {
+     
+    cat("\n\n$HoltWinters N$\n")
+
+    cat("\\begin{enumerate}\n")
+          
+          cat("\\item parameters:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("alpha", "beta", "gamma")) {
+                cat("\\item ", k,": ", fit.hw.n[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+
+          cat("\\item informations critereas:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("SSE")) {
+                cat("\\item ", k,": ", fit.hw.n[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+          
+          cat("\n\\item coefficients:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in names(fit.hw.n$coefficients)) {
+                cat("\\item ", k,": ", fit.hw.n$coefficients[k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+      
+          cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(forecast(fit.hw.n)))[[2]]) {
+                cat("\\item ", k,": ", accuracy(forecast(fit.hw.n))[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+    cat("\\end{enumerate}\n")
+    }
+
+    cat("\\columnbreak\n")
+
+    # HoltWinters ADD outputs
+
+    if(class(fit.hw.a)=="HoltWinters") {
+     
+    cat("\n\n$HoltWinters ADD$\n")
+
+    cat("\\begin{enumerate}\n")
+          
+          cat("\\item parameters:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("alpha", "beta", "gamma")) {
+                cat("\\item ", k,": ", fit.hw.a[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+
+          cat("\\item informations critereas:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("SSE")) {
+                cat("\\item ", k,": ", fit.hw.a[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+          
+          cat("\n\\item coefficients:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in names(fit.hw.a$coefficients)) {
+                cat("\\item ", k,": ", fit.hw.a$coefficients[k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+      
+          cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(forecast(fit.hw.a)))[[2]]) {
+                cat("\\item ", k,": ", accuracy(forecast(fit.hw.a))[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+    cat("\\end{enumerate}\n")
+    
+        
+    }
+
+
+    # HoltWinters  MUL
+
+    if(class(fit.hw.m)=="HoltWinters") {
+     
+    cat("\n\n$HoltWinters MUL$\n")
+
+    cat("\\begin{enumerate}\n")
+          
+          cat("\\item parameters:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("alpha", "beta", "gamma")) {
+                cat("\\item ", k,": ", fit.hw.m[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+
+          cat("\\item informations critereas:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("SSE")) {
+                cat("\\item ", k,": ", fit.hw.m[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+          
+          cat("\n\\item coefficients:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in names(fit.hw.m$coefficients)) {
+                cat("\\item ", k,": ", fit.hw.m$coefficients[k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+      
+          cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(forecast(fit.hw.m)))[[2]]) {
+                cat("\\item ", k,": ", accuracy(forecast(fit.hw.m))[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+    cat("\\end{enumerate}\n")
+    }
+
+
+
+
+    cat("\\end{multicols*}\n")
+
+    cat("\\newpage\n")
+  }
+}
+
+@
+
+% \section{Exhaustif ETS models}
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval = FALSE>>=
+
+Ets_models <- c("ANN", "ANA", "ANM", "AAN", "AAA", "AAM", "AMN", "AMA", "AMM", 
+                "MNN", "MNA", "MNM", "MAN", "MAA", "MAM", "MMN", "MMA", "MMM")
+
+# Ets_models <- c("ANN", "ANA", "AAN", "AAA",  
+#                 "MNN", "MNA", "MNM", "MAN", "MAA", "MAM", "MMN",  "MMM")
+
+for(i in Classe_Prod) {
+  for(j in c(1, 2, 3, 4, 6, 12)) {
+    
+    sub_name <- paste(c(strsplit(i[2], "_")[[1]], j), collapse="\\AaA ")
+    cat("\\subsection{",sub_name,"}\n",sep="")
+        
+    
+    par(mfrow = c(5,3),mar = c(4, 1, 2, 1),oma = c(0, 0, 0, 0))
+  
+  
+    for(k in Ets_models) {
+        
+            
+          fit <- try(ets(Cat[[paste(i[1], j, sep = "_")]][, i[2]],model = k, damped = FALSE),silent = TRUE)
+          if(class(fit)=="ets"){
+           ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+            forecast(fit)$mean,
+            fit$fitted,
+            col = rainbow(3),
+            lwd = 2,
+            lty = 1:3,
+            ylab = paste(i[2], j, sep = "_"),
+            main = paste(paste(i[2], j, sep = "_"), fit$method, sep="   ")
+            )
+            
+          } else {
+            plot.new()
+          }
+        
+    }  
+ 
+    par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 0, 0, 0), new = TRUE)
+    plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
+    
+    legend("bottom", inset = 0,
+       c(paste(i[2], j, sep = "_"), "Forecasts.ets", "Fitted.ets"),
+       fill = rainbow(3), horiz = TRUE)
+
+    cat("\\newpage\n")
+    
+    par(mfrow = c(4,3),mar = c(2, 1, 3, 1))
+    
+    for(k in Ets_models) {
+        
+          if(substr(k,2,2)!="N") {  
+            fit <- try(ets(Cat[[paste(i[1], j, sep = "_")]][, i[2]],model = k, damped = TRUE),silent = TRUE)
+            
+            if(class(fit)=="ets"){
+             ts.plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]],
+              forecast(fit)$mean,
+              fit$fitted,
+              col = rainbow(3),
+              lwd = 2,
+              lty = 1:3,
+              ylab = paste(i[2], j, sep = "_"),
+              main = paste(paste(i[2], j, sep = "_"), fit$method, sep="   ")
+              )
+            } else{
+              plot.new()
+            }
+          
+          }
+        
+    }  
+    
+    par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 0, 0, 0), new = TRUE)
+    plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
+    
+    legend("bottom", inset = 0,
+       c(paste(i[2], j, sep = "_"), "Forecasts.ets", "Fitted.ets"),
+       fill = rainbow(3), horiz = TRUE)
+
+    cat("\\newpage\n")
+     
+
+    
+
+  }
+}
+    
+@
+
+
+\end{document}

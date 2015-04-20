@@ -1,0 +1,2291 @@
+
+
+
+\documentclass[10pt,a4paper]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+\tableofcontents
+
+\newpage
+
+\section{Notes}
+
+\subsection{Model description ETS(U,V,W)}
+\begin{itemize}
+  \item The first letter U denotes the error type: A (Additive), M (Multiplicative)
+  \item The second letter V denotes the trend type: N (None), A (Additive), Ad (Additive damped), M (Multiplicative), Md (Multiplicative damped)
+  \item The third letter W denotes the season type: N (None), A (Additive), M (Multiplicative)
+\end{itemize}
+
+\subsection{Model description ARIMA(p,d,q)(P,D,Q)m}
+\begin{itemize}
+  \item p is the AR order
+  \item d is the degree of differencing
+  \item q is the MA order
+  \item P is the seasonal AR order
+  \item D is the seasonal degree of differencing
+  \item Q is the seasonal MA order
+  \item m is the seasonal frequency
+\end{itemize}
+
+\subsection{Model description HoltWinters}
+\begin{itemize}
+  \item alpha is the parameter of Holt-Winters Filter
+  \item beta is the parameter of Holt-Winters Filter
+  \item gamma is a parameter used for the seasonal component
+  \item seasonal: ADDitive or MULtiplicative
+
+\end{itemize}
+
+\newpage
+
+\section{Results for automatic ets and ARIMA}
+
+<<<<<<< HEAD
+[1] TRUE
+=======
+>>>>>>> 0045005e91abe88da3f37b2f7f9b64c2f363c0d0
+\subsection{BHL\AaA CAT\AaA 1}
+\subsubsection{plots for BHL\AaA CAT\AaA 1}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-1} 
+
+\newpage
+<<<<<<< HEAD
+\subsubsection{Outputs for BHL\AaA CAT\AaA 1}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0965223 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  1.604052 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -307.8063 
+\item  aic :  619.6127 
+\item  bic :  624.7414 
+\item  aicc :  619.7417 
+\item  mse :  6.348916 
+\item  amse :  6.407542 
+\item  sigma2 :  6.348916 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  0.1764995 
+\item  RMSE :  1.477083 
+\item  MAE :  1.292555 
+\item  MPE :  -11.56128 
+\item  MAPE :  38.82496 
+\item  MASE :  0.7483213 
+\item  ACF1 :  -0.1843822 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,1,1)(0,0,0)_{12}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -220.7457 
+\item  aic :  447.4914 
+\item  bic :  455.153 
+\item  aicc :  447.7551 
+\item  sigma2 :  6.37066 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ma1 :  -0.9023499 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 1 :  0.006954703 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  0.3401068 
+\item  RMSE :  1.439376 
+\item  MAE :  1.217433 
+\item  MPE :  -5.729456 
+\item  MAPE :  35.06739 
+\item  MASE :  0.7048298 
+\item  ACF1 :  -0.2574349 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:33 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 4.06 & 0.83 & 7.29 & -0.88 & 9.00 & 3.64 & 0.41 & 6.88 & -1.31 & 8.59 \\ 
+  2014.08 & 4.06 & 0.82 & 7.31 & -0.90 & 9.02 & 3.67 & 0.42 & 6.92 & -1.30 & 8.65 \\ 
+  2014.17 & 4.06 & 0.80 & 7.32 & -0.92 & 9.05 & 3.71 & 0.44 & 6.97 & -1.29 & 8.70 \\ 
+  2014.25 & 4.06 & 0.79 & 7.34 & -0.94 & 9.07 & 3.87 & 0.59 & 7.15 & -1.15 & 8.89 \\ 
+  2014.33 & 4.06 & 0.77 & 7.35 & -0.97 & 9.09 & 3.87 & 0.57 & 7.16 & -1.17 & 8.91 \\ 
+  2014.42 & 4.06 & 0.76 & 7.37 & -0.99 & 9.12 & 3.87 & 0.56 & 7.18 & -1.19 & 8.93 \\ 
+  2014.50 & 4.06 & 0.74 & 7.38 & -1.01 & 9.14 & 3.91 & 0.59 & 7.24 & -1.18 & 9.00 \\ 
+  2014.58 & 4.06 & 0.73 & 7.40 & -1.03 & 9.16 & 3.91 & 0.57 & 7.25 & -1.20 & 9.02 \\ 
+  2014.67 & 4.06 & 0.72 & 7.41 & -1.06 & 9.18 & 3.91 & 0.56 & 7.27 & -1.22 & 9.04 \\ 
+  2014.75 & 4.06 & 0.70 & 7.42 & -1.08 & 9.20 & 4.61 & 1.24 & 7.98 & -0.54 & 9.76 \\ 
+  2014.83 & 4.06 & 0.69 & 7.44 & -1.10 & 9.23 & 4.61 & 1.22 & 8.00 & -0.57 & 9.79 \\ 
+  2014.92 & 4.06 & 0.67 & 7.45 & -1.12 & 9.25 & 4.61 & 1.21 & 8.01 & -0.59 & 9.81 \\ 
+  2015.00 & 4.06 & 0.66 & 7.47 & -1.14 & 9.27 & 3.72 & 0.30 & 7.13 & -1.51 & 8.94 \\ 
+  2015.08 & 4.06 & 0.64 & 7.48 & -1.17 & 9.29 & 3.73 & 0.30 & 7.16 & -1.51 & 8.98 \\ 
+  2015.17 & 4.06 & 0.63 & 7.50 & -1.19 & 9.31 & 3.75 & 0.31 & 7.19 & -1.52 & 9.02 \\ 
+  2015.25 & 4.06 & 0.62 & 7.51 & -1.21 & 9.34 & 3.92 & 0.46 & 7.38 & -1.37 & 9.21 \\ 
+  2015.33 & 4.06 & 0.60 & 7.52 & -1.23 & 9.36 & 3.92 & 0.45 & 7.39 & -1.39 & 9.23 \\ 
+  2015.42 & 4.06 & 0.59 & 7.54 & -1.25 & 9.38 & 3.92 & 0.43 & 7.41 & -1.41 & 9.25 \\ 
+  2015.50 & 4.06 & 0.57 & 7.55 & -1.27 & 9.40 & 3.93 & 0.43 & 7.43 & -1.42 & 9.29 \\ 
+  2015.58 & 4.06 & 0.56 & 7.57 & -1.29 & 9.42 & 3.93 & 0.42 & 7.45 & -1.44 & 9.31 \\ 
+  2015.67 & 4.06 & 0.55 & 7.58 & -1.32 & 9.44 & 3.93 & 0.40 & 7.46 & -1.46 & 9.33 \\ 
+  2015.75 & 4.06 & 0.53 & 7.59 & -1.34 & 9.46 & 4.54 & 0.99 & 8.08 & -0.88 & 9.96 \\ 
+  2015.83 & 4.06 & 0.52 & 7.61 & -1.36 & 9.48 & 4.54 & 0.98 & 8.09 & -0.90 & 9.98 \\ 
+  2015.92 & 4.06 & 0.50 & 7.62 & -1.38 & 9.50 & 4.54 & 0.96 & 8.11 & -0.93 & 10.00 \\ 
+  2016.00 & 4.06 & 0.49 & 7.63 & -1.40 & 9.53 & 3.72 & 0.14 & 7.31 & -1.76 & 9.21 \\ 
+  2016.08 & 4.06 & 0.48 & 7.65 & -1.42 & 9.55 & 3.75 & 0.15 & 7.35 & -1.76 & 9.26 \\ 
+  2016.17 & 4.06 & 0.46 & 7.66 & -1.44 & 9.57 & 3.78 & 0.16 & 7.39 & -1.75 & 9.30 \\ 
+  2016.25 & 4.06 & 0.45 & 7.68 & -1.46 & 9.59 & 3.94 & 0.31 & 7.57 & -1.61 & 9.49 \\ 
+  2016.33 & 4.06 & 0.44 & 7.69 & -1.48 & 9.61 & 3.94 & 0.30 & 7.58 & -1.63 & 9.51 \\ 
+  2016.42 & 4.06 & 0.42 & 7.70 & -1.50 & 9.63 & 3.94 & 0.29 & 7.60 & -1.65 & 9.53 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA CAT\AaA 2}
+\subsubsection{plots for BHL\AaA CAT\AaA 2}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-2} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA CAT\AaA 2}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.1717022 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  3.307577 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -157.6226 
+\item  aic :  319.2453 
+\item  bic :  322.9877 
+\item  aicc :  319.5119 
+\item  mse :  14.82639 
+\item  amse :  14.89811 
+\item  sigma2 :  14.82639 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  0.3544983 
+\item  RMSE :  2.296024 
+\item  MAE :  1.412266 
+\item  MPE :  -2.141779 
+\item  MAPE :  17.19071 
+\item  MASE :  0.7845924 
+\item  ACF1 :  0.06693588 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{6}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -131.9619 
+\item  aic :  269.9238 
+\item  bic :  275.5374 
+\item  aicc :  270.4692 
+\item  sigma2 :  14.30394 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  intercept :  5.436858 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 2 :  0.01493484 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  1.06534 
+\item  RMSE :  2.211084 
+\item  MAE :  1.418039 
+\item  MPE :  9.106575 
+\item  MAPE :  16.16056 
+\item  MASE :  0.7877997 
+\item  ACF1 :  0.06262893 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:35 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 8.04 & 3.10 & 12.97 & 0.49 & 15.58 & 5.31 & 0.46 & 10.15 & -2.11 & 12.72 \\ 
+  2014.17 & 8.04 & 3.03 & 13.04 & 0.38 & 15.69 & 5.94 & 1.10 & 10.79 & -1.47 & 13.36 \\ 
+  2014.33 & 8.04 & 2.96 & 13.11 & 0.27 & 15.80 & 6.42 & 1.57 & 11.27 & -0.99 & 13.83 \\ 
+  2014.50 & 8.04 & 2.89 & 13.18 & 0.16 & 15.91 & 6.65 & 1.80 & 11.49 & -0.77 & 14.06 \\ 
+  2014.67 & 8.04 & 2.82 & 13.25 & 0.06 & 16.01 & 8.16 & 3.31 & 13.00 & 0.74 & 15.57 \\ 
+  2014.83 & 8.04 & 2.75 & 13.32 & -0.05 & 16.12 & 9.65 & 4.80 & 14.50 & 2.24 & 17.06 \\ 
+  2015.00 & 8.04 & 2.68 & 13.39 & -0.15 & 16.22 & 5.72 & 0.87 & 10.57 & -1.69 & 13.13 \\ 
+  2015.17 & 8.04 & 2.62 & 13.46 & -0.25 & 16.32 & 6.24 & 1.39 & 11.08 & -1.17 & 13.65 \\ 
+  2015.33 & 8.04 & 2.55 & 13.52 & -0.35 & 16.43 & 6.67 & 1.83 & 11.52 & -0.74 & 14.08 \\ 
+  2015.50 & 8.04 & 2.48 & 13.59 & -0.45 & 16.52 & 6.76 & 1.91 & 11.60 & -0.66 & 14.17 \\ 
+  2015.67 & 8.04 & 2.42 & 13.65 & -0.55 & 16.62 & 8.06 & 3.22 & 12.91 & 0.65 & 15.48 \\ 
+  2015.83 & 8.04 & 2.36 & 13.71 & -0.65 & 16.72 & 9.36 & 4.52 & 14.21 & 1.95 & 16.78 \\ 
+  2016.00 & 8.04 & 2.29 & 13.78 & -0.75 & 16.82 & 5.69 & 0.85 & 10.54 & -1.72 & 13.11 \\ 
+  2016.17 & 8.04 & 2.23 & 13.84 & -0.84 & 16.91 & 6.27 & 1.42 & 11.12 & -1.14 & 13.68 \\ 
+  2016.33 & 8.04 & 2.17 & 13.90 & -0.93 & 17.01 & 6.72 & 1.88 & 11.57 & -0.69 & 14.14 \\ 
+  2016.50 & 8.04 & 2.11 & 13.96 & -1.03 & 17.10 & 6.88 & 2.03 & 11.72 & -0.54 & 14.29 \\ 
+  2016.67 & 8.04 & 2.05 & 14.02 & -1.12 & 17.19 & 8.28 & 3.44 & 13.13 & 0.87 & 15.70 \\ 
+  2016.83 & 8.04 & 1.99 & 14.08 & -1.21 & 17.28 & 9.68 & 4.83 & 14.53 & 2.27 & 17.09 \\ 
+  2017.00 & 8.04 & 1.93 & 14.14 & -1.30 & 17.37 & 5.88 & 1.03 & 10.73 & -1.53 & 13.29 \\ 
+  2017.17 & 8.04 & 1.87 & 14.20 & -1.39 & 17.46 & 6.43 & 1.58 & 11.28 & -0.98 & 13.84 \\ 
+  2017.33 & 8.04 & 1.81 & 14.26 & -1.48 & 17.55 & 6.87 & 2.03 & 11.72 & -0.54 & 14.29 \\ 
+  2017.50 & 8.04 & 1.76 & 14.31 & -1.57 & 17.64 & 6.99 & 2.15 & 11.84 & -0.42 & 14.41 \\ 
+  2017.67 & 8.04 & 1.70 & 14.37 & -1.65 & 17.73 & 8.35 & 3.50 & 13.20 & 0.94 & 15.76 \\ 
+  2017.83 & 8.04 & 1.64 & 14.43 & -1.74 & 17.81 & 9.70 & 4.85 & 14.55 & 2.29 & 17.11 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA CAT\AaA 3}
+\subsubsection{plots for BHL\AaA CAT\AaA 3}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-3} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA CAT\AaA 3}
+\begin{multicols}{2}
+
+
+$ ETS(M,Ad,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0004226293 
+\item  beta :  0.000422608 
+\item  phi :  0.8833652 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  1.62528 
+\item  b :  1.424078 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -97.81853 
+\item  aic :  205.6371 
+\item  bic :  212.9657 
+\item  aicc :  207.9448 
+\item  mse :  14.88563 
+\item  amse :  14.74936 
+\item  sigma2 :  0.1586127 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(1,0,0)(0,0,0)_{4}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -91.38428 
+\item  aic :  190.7686 
+\item  bic :  196.6315 
+\item  aicc :  192.25 
+\item  sigma2 :  17.64097 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ar1 :  0.3218121 
+\item  intercept :  8.885583 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 3 :  0.009142325 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:37 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 12.26 & 6.00 & 18.52 & 2.69 & 21.83 & 10.27 & 4.89 & 15.65 & 2.04 & 18.50 \\ 
+  2014.25 & 12.28 & 6.01 & 18.55 & 2.70 & 21.87 & 10.23 & 4.57 & 15.88 & 1.58 & 18.88 \\ 
+  2014.50 & 12.30 & 6.02 & 18.58 & 2.70 & 21.90 & 10.16 & 4.48 & 15.85 & 1.47 & 18.85 \\ 
+  2014.75 & 12.32 & 6.03 & 18.61 & 2.70 & 21.93 & 12.81 & 7.12 & 18.49 & 4.11 & 21.50 \\ 
+  2015.00 & 12.33 & 6.04 & 18.63 & 2.71 & 21.96 & 9.44 & 3.76 & 15.13 & 0.75 & 18.13 \\ 
+  2015.25 & 12.35 & 6.04 & 18.65 & 2.71 & 21.98 & 10.11 & 4.42 & 15.79 & 1.41 & 18.80 \\ 
+  2015.50 & 12.36 & 6.05 & 18.66 & 2.71 & 22.00 & 10.15 & 4.47 & 15.84 & 1.46 & 18.85 \\ 
+  2015.75 & 12.37 & 6.05 & 18.68 & 2.71 & 22.02 & 12.53 & 6.85 & 18.22 & 3.84 & 21.23 \\ 
+  2016.00 & 12.38 & 6.06 & 18.69 & 2.72 & 22.04 & 9.54 & 3.85 & 15.22 & 0.84 & 18.23 \\ 
+  2016.25 & 12.38 & 6.06 & 18.70 & 2.72 & 22.05 & 10.19 & 4.51 & 15.88 & 1.50 & 18.89 \\ 
+  2016.50 & 12.39 & 6.07 & 18.71 & 2.72 & 22.06 & 10.29 & 4.61 & 15.98 & 1.60 & 18.99 \\ 
+  2016.75 & 12.40 & 6.07 & 18.72 & 2.72 & 22.07 & 12.83 & 7.15 & 18.52 & 4.14 & 21.53 \\ 
+  2017.00 & 12.40 & 6.07 & 18.73 & 2.72 & 22.08 & 9.67 & 3.98 & 15.35 & 0.97 & 18.36 \\ 
+  2017.25 & 12.41 & 6.07 & 18.74 & 2.72 & 22.09 & 10.33 & 4.65 & 16.02 & 1.64 & 19.03 \\ 
+  2017.50 & 12.41 & 6.08 & 18.74 & 2.72 & 22.10 & 10.41 & 4.72 & 16.09 & 1.71 & 19.10 \\ 
+  2017.75 & 12.41 & 6.08 & 18.75 & 2.72 & 22.10 & 12.87 & 7.19 & 18.56 & 4.18 & 21.57 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA CAT\AaA 4}
+\subsubsection{plots for BHL\AaA CAT\AaA 4}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-4} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA CAT\AaA 4}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.3711319 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  5.794677 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -80.93827 
+\item  aic :  165.8765 
+\item  bic :  168.2326 
+\item  aicc :  166.448 
+\item  mse :  35.40319 
+\item  amse :  39.94163 
+\item  sigma2 :  35.40319 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{3}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -76.62209 
+\item  aic :  159.2442 
+\item  bic :  162.7783 
+\item  aicc :  160.4442 
+\item  sigma2 :  34.71934 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  intercept :  11.00408 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 4 :  0.01421629 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:38 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 16.27 & 8.64 & 23.89 & 4.60 & 27.93 & 12.16 & 4.61 & 19.72 & 0.62 & 23.71 \\ 
+  2014.33 & 16.27 & 8.13 & 24.40 & 3.83 & 28.71 & 13.29 & 5.74 & 20.84 & 1.74 & 24.84 \\ 
+  2014.67 & 16.27 & 7.65 & 24.88 & 3.10 & 29.44 & 17.40 & 9.85 & 24.95 & 5.85 & 28.95 \\ 
+  2015.00 & 16.27 & 7.20 & 25.33 & 2.40 & 30.13 & 12.48 & 4.93 & 20.03 & 0.93 & 24.03 \\ 
+  2015.33 & 16.27 & 6.77 & 25.76 & 1.74 & 30.79 & 13.57 & 6.02 & 21.13 & 2.03 & 25.12 \\ 
+  2015.67 & 16.27 & 6.36 & 26.18 & 1.11 & 31.42 & 17.29 & 9.74 & 24.84 & 5.74 & 28.84 \\ 
+  2016.00 & 16.27 & 5.96 & 26.57 & 0.51 & 32.03 & 12.71 & 5.16 & 20.26 & 1.16 & 24.26 \\ 
+  2016.33 & 16.27 & 5.58 & 26.95 & -0.08 & 32.61 & 13.82 & 6.26 & 21.37 & 2.27 & 25.36 \\ 
+  2016.67 & 16.27 & 5.21 & 27.32 & -0.64 & 33.17 & 17.68 & 10.13 & 25.23 & 6.13 & 29.23 \\ 
+  2017.00 & 16.27 & 4.85 & 27.68 & -1.19 & 33.72 & 12.97 & 5.42 & 20.52 & 1.42 & 24.52 \\ 
+  2017.33 & 16.27 & 4.51 & 28.02 & -1.71 & 34.25 & 14.07 & 6.52 & 21.62 & 2.52 & 25.62 \\ 
+  2017.67 & 16.27 & 4.17 & 28.36 & -2.23 & 34.76 & 17.88 & 10.33 & 25.43 & 6.33 & 29.43 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA CAT\AaA 6}
+\subsubsection{plots for BHL\AaA CAT\AaA 6}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-5} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA CAT\AaA 6}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.4550858 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  9.723708 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -61.55892 
+\item  aic :  127.1178 
+\item  bic :  128.8986 
+\item  aicc :  127.9178 
+\item  mse :  51.90985 
+\item  amse :  60.39 
+\item  sigma2 :  51.90985 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{2}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -61.33282 
+\item  aic :  128.6656 
+\item  bic :  131.3368 
+\item  aicc :  130.3799 
+\item  sigma2 :  53.35038 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  intercept :  17.51102 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 6 :  0.01173495 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:40 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 23.10 & 13.86 & 32.33 & 8.98 & 37.22 & 19.92 & 10.56 & 29.29 & 5.61 & 34.24 \\ 
+  2015.50 & 23.10 & 12.95 & 33.24 & 7.58 & 38.61 & 20.03 & 10.67 & 29.39 & 5.71 & 34.34 \\ 
+  2016.00 & 23.10 & 12.12 & 34.08 & 6.30 & 39.89 & 20.04 & 10.68 & 29.40 & 5.72 & 34.35 \\ 
+  2016.50 & 23.10 & 11.34 & 34.85 & 5.12 & 41.08 & 20.14 & 10.78 & 29.50 & 5.82 & 34.46 \\ 
+  2017.00 & 23.10 & 10.61 & 35.58 & 4.00 & 42.19 & 20.15 & 10.79 & 29.51 & 5.83 & 34.47 \\ 
+  2017.50 & 23.10 & 9.92 & 36.27 & 2.95 & 43.24 & 20.25 & 10.89 & 29.61 & 5.94 & 34.57 \\ 
+  2018.00 & 23.10 & 9.27 & 36.92 & 1.95 & 44.24 & 20.26 & 10.90 & 29.62 & 5.95 & 34.58 \\ 
+  2018.50 & 23.10 & 8.65 & 37.55 & 0.99 & 45.20 & 20.36 & 11.00 & 29.73 & 6.05 & 34.68 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA CAT\AaA 12}
+\subsubsection{plots for BHL\AaA CAT\AaA 12}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-6} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA CAT\AaA 12}
+\begin{multicols}{2}
+
+
+$ ETS(M,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.9998999 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  15.54883 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -31.50834 
+\item  aic :  67.01667 
+\item  bic :  67.41112 
+\item  aicc :  69.01667 
+\item  mse :  134.6789 
+\item  amse :  253.7839 
+\item  sigma2 :  0.1025138 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{1}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -33.94286 
+\item  aic :  71.88571 
+\item  bic :  72.28016 
+\item  aicc :  73.88571 
+\item  sigma2 :  110.496 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  DEP\AaA EQUIP\AaA CAP\AaA 12 :  0.07389597 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:41 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 45.00 & 26.54 & 63.47 & 16.76 & 73.24 & 39.04 & 25.57 & 52.51 & 18.44 & 59.65 \\ 
+  2016.00 & 45.00 & 18.23 & 71.77 & 4.06 & 85.95 & 39.04 & 25.57 & 52.51 & 18.44 & 59.65 \\ 
+  2017.00 & 45.00 & 11.37 & 78.63 & -6.44 & 96.44 & 39.04 & 25.57 & 52.51 & 18.44 & 59.65 \\ 
+  2018.00 & 45.00 & 5.15 & 84.85 & -15.94 & 105.94 & 39.04 & 25.57 & 52.51 & 18.44 & 59.65 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA 1}
+\subsubsection{plots for BHL\AaA 1}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-7} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA 1}
+\begin{multicols}{2}
+
+
+$ ETS(M,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.1207778 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  17.5995 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -441.9717 
+\item  aic :  887.9434 
+\item  bic :  893.0721 
+\item  aicc :  888.0725 
+\item  mse :  116.4663 
+\item  amse :  117.6822 
+\item  sigma2 :  0.1951939 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  -0.4254003 
+\item  RMSE :  8.573996 
+\item  MAE :  6.431789 
+\item  MPE :  -23.25401 
+\item  MAPE :  41.30077 
+\item  MASE :  0.884371 
+\item  ACF1 :  0.4618342 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,1,1)(0,0,0)_{12}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -356.1869 
+\item  aic :  718.3738 
+\item  bic :  726.0354 
+\item  aicc :  718.6375 
+\item  sigma2 :  114.0309 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ma1 :  -0.8672164 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 1 :  0.04569666 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  -2.410587 
+\item  RMSE :  8.312333 
+\item  MAE :  5.910032 
+\item  MPE :  -29.79239 
+\item  MAPE :  40.47993 
+\item  MASE :  0.8126295 
+\item  ACF1 :  0.467305 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:49 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 26.82 & 11.63 & 42.00 & 3.60 & 50.04 & 23.92 & 10.23 & 37.60 & 2.99 & 44.85 \\ 
+  2014.08 & 26.82 & 11.50 & 42.13 & 3.39 & 50.24 & 24.14 & 10.34 & 37.95 & 3.03 & 45.26 \\ 
+  2014.17 & 26.82 & 11.37 & 42.26 & 3.19 & 50.44 & 24.36 & 10.44 & 38.29 & 3.07 & 45.66 \\ 
+  2014.25 & 26.82 & 11.24 & 42.39 & 2.99 & 50.64 & 25.42 & 11.38 & 39.46 & 3.94 & 46.89 \\ 
+  2014.33 & 26.82 & 11.11 & 42.52 & 2.80 & 50.84 & 25.42 & 11.26 & 39.58 & 3.76 & 47.07 \\ 
+  2014.42 & 26.82 & 10.98 & 42.65 & 2.60 & 51.03 & 25.42 & 11.14 & 39.69 & 3.59 & 47.25 \\ 
+  2014.50 & 26.82 & 10.85 & 42.78 & 2.40 & 51.23 & 25.69 & 11.30 & 40.09 & 3.69 & 47.70 \\ 
+  2014.58 & 26.82 & 10.73 & 42.91 & 2.21 & 51.43 & 25.69 & 11.19 & 40.20 & 3.51 & 47.88 \\ 
+  2014.67 & 26.82 & 10.60 & 43.03 & 2.01 & 51.62 & 25.69 & 11.08 & 40.31 & 3.34 & 48.05 \\ 
+  2014.75 & 26.82 & 10.47 & 43.16 & 1.82 & 51.81 & 30.29 & 15.56 & 45.02 & 7.76 & 52.82 \\ 
+  2014.83 & 26.82 & 10.35 & 43.29 & 1.63 & 52.00 & 30.29 & 15.44 & 45.13 & 7.59 & 52.99 \\ 
+  2014.92 & 26.82 & 10.22 & 43.41 & 1.44 & 52.20 & 30.29 & 15.33 & 45.24 & 7.42 & 53.16 \\ 
+  2015.00 & 26.82 & 10.10 & 43.54 & 1.25 & 52.39 & 24.42 & 9.35 & 39.48 & 1.38 & 47.45 \\ 
+  2015.08 & 26.82 & 9.97 & 43.66 & 1.06 & 52.58 & 24.53 & 9.35 & 39.70 & 1.32 & 47.73 \\ 
+  2015.17 & 26.82 & 9.85 & 43.78 & 0.87 & 52.76 & 24.63 & 9.35 & 39.92 & 1.26 & 48.00 \\ 
+  2015.25 & 26.82 & 9.73 & 43.91 & 0.68 & 52.95 & 25.76 & 10.37 & 41.15 & 2.22 & 49.29 \\ 
+  2015.33 & 26.82 & 9.60 & 44.03 & 0.49 & 53.14 & 25.76 & 10.26 & 41.25 & 2.06 & 49.46 \\ 
+  2015.42 & 26.82 & 9.48 & 44.15 & 0.31 & 53.33 & 25.76 & 10.16 & 41.36 & 1.90 & 49.62 \\ 
+  2015.50 & 26.82 & 9.36 & 44.27 & 0.12 & 53.51 & 25.84 & 10.13 & 41.55 & 1.82 & 49.86 \\ 
+  2015.58 & 26.82 & 9.24 & 44.39 & -0.06 & 53.70 & 25.84 & 10.03 & 41.65 & 1.66 & 50.02 \\ 
+  2015.67 & 26.82 & 9.12 & 44.51 & -0.25 & 53.88 & 25.84 & 9.92 & 41.76 & 1.50 & 50.18 \\ 
+  2015.75 & 26.82 & 9.00 & 44.63 & -0.43 & 54.06 & 29.80 & 13.78 & 45.82 & 5.30 & 54.30 \\ 
+  2015.83 & 26.82 & 8.88 & 44.75 & -0.61 & 54.25 & 29.80 & 13.68 & 45.93 & 5.15 & 54.46 \\ 
+  2015.92 & 26.82 & 8.76 & 44.87 & -0.79 & 54.43 & 29.80 & 13.58 & 46.03 & 4.99 & 54.62 \\ 
+  2016.00 & 26.82 & 8.64 & 44.99 & -0.98 & 54.61 & 24.47 & 8.14 & 40.79 & -0.50 & 49.44 \\ 
+  2016.08 & 26.82 & 8.53 & 45.11 & -1.16 & 54.79 & 24.64 & 8.21 & 41.06 & -0.49 & 49.76 \\ 
+  2016.17 & 26.82 & 8.41 & 45.22 & -1.34 & 54.97 & 24.80 & 8.27 & 41.33 & -0.47 & 50.08 \\ 
+  2016.25 & 26.82 & 8.29 & 45.34 & -1.51 & 55.15 & 25.89 & 9.26 & 42.52 & 0.46 & 51.32 \\ 
+  2016.33 & 26.82 & 8.17 & 45.46 & -1.69 & 55.33 & 25.89 & 9.17 & 42.62 & 0.31 & 51.47 \\ 
+  2016.42 & 26.82 & 8.06 & 45.57 & -1.87 & 55.50 & 25.89 & 9.07 & 42.71 & 0.16 & 51.62 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA 2}
+\subsubsection{plots for BHL\AaA 2}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-8} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA 2}
+\begin{multicols}{2}
+
+
+$ ETS(M,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.2987116 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  35.84253 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -217.7566 
+\item  aic :  439.5133 
+\item  bic :  443.2557 
+\item  aicc :  439.78 
+\item  mse :  214.7588 
+\item  amse :  227.504 
+\item  sigma2 :  0.08444072 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  -0.6090436 
+\item  RMSE :  17.04869 
+\item  MAE :  12.67133 
+\item  MPE :  -20.14472 
+\item  MAPE :  39.7262 
+\item  MASE :  0.6886592 
+\item  ACF1 :  0.02544851 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(1,1,1)(0,0,1)_{6}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -184.4404 
+\item  aic :  378.8807 
+\item  bic :  388.1315 
+\item  aicc :  380.3442 
+\item  sigma2 :  169.2711 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ar1 :  0.5279712 
+\item  ma1 :  -0.9915511 
+\item  sma1 :  0.49392 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 2 :  0.05701983 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  -2.182975 
+\item  RMSE :  13.64604 
+\item  MAE :  10.17057 
+\item  MPE :  -17.95434 
+\item  MAPE :  32.14292 
+\item  MASE :  0.5527485 
+\item  ACF1 :  -0.07551234 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:52 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 53.18 & 33.37 & 72.98 & 22.89 & 83.46 & 44.66 & 27.89 & 61.43 & 19.02 & 70.30 \\ 
+  2014.17 & 53.18 & 32.44 & 73.92 & 21.46 & 84.90 & 56.63 & 37.52 & 75.74 & 27.40 & 85.86 \\ 
+  2014.33 & 53.18 & 31.54 & 74.82 & 20.08 & 86.28 & 53.25 & 33.45 & 73.04 & 22.97 & 83.52 \\ 
+  2014.50 & 53.18 & 30.66 & 75.69 & 18.75 & 87.61 & 48.60 & 28.58 & 68.63 & 17.98 & 79.22 \\ 
+  2014.67 & 53.18 & 29.82 & 76.54 & 17.45 & 88.90 & 51.02 & 30.91 & 71.12 & 20.27 & 81.77 \\ 
+  2014.83 & 53.18 & 29.00 & 77.36 & 16.19 & 90.16 & 63.78 & 43.64 & 83.93 & 32.98 & 94.59 \\ 
+  2015.00 & 53.18 & 28.19 & 78.16 & 14.97 & 91.39 & 47.13 & 24.95 & 69.32 & 13.20 & 81.06 \\ 
+  2015.17 & 53.18 & 27.41 & 78.94 & 13.77 & 92.58 & 48.24 & 25.42 & 71.06 & 13.34 & 83.14 \\ 
+  2015.33 & 53.18 & 26.65 & 79.71 & 12.60 & 93.75 & 49.44 & 26.39 & 72.49 & 14.19 & 84.69 \\ 
+  2015.50 & 53.18 & 25.90 & 80.46 & 11.46 & 94.90 & 49.51 & 26.37 & 72.66 & 14.12 & 84.91 \\ 
+  2015.67 & 53.18 & 25.16 & 81.19 & 10.33 & 96.02 & 54.38 & 31.20 & 77.57 & 18.92 & 89.84 \\ 
+  2015.83 & 53.18 & 24.44 & 81.91 & 9.23 & 97.12 & 59.28 & 36.08 & 82.49 & 23.79 & 94.77 \\ 
+  2016.00 & 53.18 & 23.73 & 82.62 & 8.15 & 98.21 & 45.23 & 22.01 & 68.45 & 9.71 & 80.74 \\ 
+  2016.17 & 53.18 & 23.04 & 83.32 & 7.08 & 99.27 & 47.41 & 24.18 & 70.64 & 11.88 & 82.94 \\ 
+  2016.33 & 53.18 & 22.35 & 84.00 & 6.03 & 100.32 & 49.14 & 25.90 & 72.37 & 13.60 & 84.67 \\ 
+  2016.50 & 53.18 & 21.67 & 84.68 & 5.00 & 101.36 & 49.71 & 26.47 & 72.96 & 14.17 & 85.26 \\ 
+  2016.67 & 53.18 & 21.01 & 85.35 & 3.98 & 102.38 & 55.08 & 31.83 & 78.33 & 19.53 & 90.63 \\ 
+  2016.83 & 53.18 & 20.35 & 86.01 & 2.97 & 103.38 & 60.41 & 37.16 & 83.66 & 24.85 & 95.97 \\ 
+  2017.00 & 53.18 & 19.70 & 86.66 & 1.98 & 104.38 & 45.91 & 22.65 & 69.16 & 10.34 & 81.47 \\ 
+  2017.17 & 53.18 & 19.06 & 87.30 & 0.99 & 105.36 & 48.00 & 24.74 & 71.26 & 12.43 & 83.57 \\ 
+  2017.33 & 53.18 & 18.42 & 87.93 & 0.02 & 106.33 & 49.70 & 26.43 & 72.96 & 14.12 & 85.28 \\ 
+  2017.50 & 53.18 & 17.79 & 88.56 & -0.94 & 107.29 & 50.15 & 26.88 & 73.42 & 14.56 & 85.74 \\ 
+  2017.67 & 53.18 & 17.17 & 89.18 & -1.89 & 108.25 & 55.34 & 32.06 & 78.61 & 19.74 & 90.93 \\ 
+  2017.83 & 53.18 & 16.55 & 89.80 & -2.83 & 109.19 & 60.49 & 37.21 & 83.77 & 24.89 & 96.09 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA 3}
+\subsubsection{plots for BHL\AaA 3}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-9} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA 3}
+\begin{multicols}{2}
+
+
+$ ETS(M,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.3062739 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  52.42152 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -154.738 
+\item  aic :  313.4759 
+\item  bic :  316.4074 
+\item  aicc :  313.8897 
+\item  mse :  570.965 
+\item  amse :  576.2653 
+\item  sigma2 :  0.1049424 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,1,1)_{4}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -108.1338 
+\item  aic :  222.2677 
+\item  bic :  226.2643 
+\item  aicc :  223.2677 
+\item  sigma2 :  499.2693 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  sma1 :  -0.7447722 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 3 :  0.1937968 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:54 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 80.78 & 47.24 & 114.31 & 29.49 & 132.06 & 76.71 & 48.02 & 105.40 & 32.83 & 120.59 \\ 
+  2014.25 & 80.78 & 45.55 & 116.01 & 26.90 & 134.66 & 98.59 & 69.90 & 127.29 & 54.71 & 142.47 \\ 
+  2014.50 & 80.78 & 43.91 & 117.64 & 24.40 & 137.15 & 61.68 & 32.99 & 90.37 & 17.80 & 105.56 \\ 
+  2014.75 & 80.78 & 42.34 & 119.22 & 21.99 & 139.57 & 94.75 & 66.06 & 123.45 & 50.87 & 138.64 \\ 
+  2015.00 & 80.78 & 40.80 & 120.75 & 19.64 & 141.91 & 80.11 & 50.50 & 109.72 & 34.83 & 125.40 \\ 
+  2015.25 & 80.78 & 39.32 & 122.24 & 17.37 & 144.18 & 102.77 & 73.16 & 132.38 & 57.49 & 148.06 \\ 
+  2015.50 & 80.78 & 37.86 & 123.69 & 15.15 & 146.40 & 63.65 & 34.04 & 93.26 & 18.36 & 108.93 \\ 
+  2015.75 & 80.78 & 36.45 & 125.10 & 12.98 & 148.57 & 89.59 & 59.98 & 119.20 & 44.31 & 134.88 \\ 
+  2016.00 & 80.78 & 35.06 & 126.49 & 10.86 & 150.69 & 82.37 & 51.87 & 112.86 & 35.72 & 129.01 \\ 
+  2016.25 & 80.78 & 33.70 & 127.85 & 8.78 & 152.77 & 104.65 & 74.15 & 135.15 & 58.01 & 151.29 \\ 
+  2016.50 & 80.78 & 32.37 & 129.18 & 6.74 & 154.81 & 66.59 & 36.09 & 97.09 & 19.95 & 113.23 \\ 
+  2016.75 & 80.78 & 31.06 & 130.49 & 4.74 & 156.81 & 95.97 & 65.47 & 126.46 & 49.32 & 142.61 \\ 
+  2017.00 & 80.78 & 29.77 & 131.78 & 2.77 & 158.78 & 85.17 & 53.81 & 116.53 & 37.21 & 133.14 \\ 
+  2017.25 & 80.78 & 28.50 & 133.05 & 0.83 & 160.72 & 107.64 & 76.28 & 139.00 & 59.68 & 155.60 \\ 
+  2017.50 & 80.78 & 27.25 & 134.30 & -1.09 & 162.64 & 69.07 & 37.70 & 100.43 & 21.10 & 117.03 \\ 
+  2017.75 & 80.78 & 26.02 & 135.54 & -2.97 & 164.53 & 96.79 & 65.43 & 128.15 & 48.83 & 144.75 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA 4}
+\subsubsection{plots for BHL\AaA 4}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-10} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA 4}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.664554 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  75.57255 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -111.5273 
+\item  aic :  227.0547 
+\item  bic :  229.4108 
+\item  aicc :  227.6261 
+\item  mse :  452.9997 
+\item  amse :  657.9783 
+\item  sigma2 :  452.9997 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,1,1)_{3}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -84.89413 
+\item  aic :  175.7883 
+\item  bic :  178.9218 
+\item  aicc :  177.2 
+\item  sigma2 :  753.8577 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  sma1 :  -0.7650275 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 4 :  0.1847904 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:56 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 105.48 & 78.21 & 132.76 & 63.77 & 147.20 & 111.54 & 76.25 & 146.83 & 57.57 & 165.51 \\ 
+  2014.33 & 105.48 & 72.73 & 138.23 & 55.40 & 155.57 & 106.40 & 71.11 & 141.69 & 52.43 & 160.37 \\ 
+  2014.67 & 105.48 & 68.05 & 142.92 & 48.24 & 162.73 & 109.49 & 74.21 & 144.78 & 55.53 & 163.46 \\ 
+  2015.00 & 105.48 & 63.89 & 147.07 & 41.88 & 169.09 & 115.60 & 79.36 & 151.85 & 60.17 & 171.03 \\ 
+  2015.33 & 105.48 & 60.12 & 150.85 & 36.10 & 174.87 & 110.05 & 73.81 & 146.30 & 54.62 & 165.48 \\ 
+  2015.67 & 105.48 & 56.63 & 154.34 & 30.77 & 180.20 & 108.00 & 71.75 & 144.24 & 52.57 & 163.43 \\ 
+  2016.00 & 105.48 & 53.37 & 157.59 & 25.79 & 185.18 & 118.59 & 81.41 & 155.76 & 61.73 & 175.44 \\ 
+  2016.33 & 105.48 & 50.31 & 160.66 & 21.10 & 189.86 & 113.20 & 76.02 & 150.37 & 56.34 & 170.05 \\ 
+  2016.67 & 105.48 & 47.41 & 163.56 & 16.67 & 194.30 & 113.10 & 75.93 & 150.28 & 56.25 & 169.96 \\ 
+  2017.00 & 105.48 & 44.65 & 166.32 & 12.44 & 198.53 & 121.99 & 83.90 & 160.07 & 63.74 & 180.23 \\ 
+  2017.33 & 105.48 & 42.00 & 168.96 & 8.40 & 202.57 & 116.53 & 78.45 & 154.62 & 58.29 & 174.78 \\ 
+  2017.67 & 105.48 & 39.47 & 171.50 & 4.52 & 206.45 & 115.69 & 77.61 & 153.78 & 57.45 & 173.94 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA 6}
+\subsubsection{plots for BHL\AaA 6}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-11} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA 6}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,A) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.9966577 
+\item  gamma :  0.0001002108 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  140.272 
+\item  s1 :  -11.04126 
+\item  s2 :  11.04126 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -86.40458 
+\item  aic :  180.8092 
+\item  bic :  184.3706 
+\item  aicc :  183.8861 
+\item  mse :  820.6831 
+\item  amse :  1629.398 
+\item  sigma2 :  820.6831 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,1)(0,1,0)_{2}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -67.94564 
+\item  aic :  141.8913 
+\item  bic :  144.209 
+\item  aicc :  143.8913 
+\item  sigma2 :  954.517 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ma1 :  0.9597398 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 6 :  0.04484582 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:57 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 158.15 & 121.44 & 194.87 & 102.01 & 214.30 & 175.10 & 135.00 & 215.20 & 113.77 & 236.43 \\ 
+  2015.50 & 136.07 & 84.24 & 187.90 & 56.80 & 215.34 & 136.43 & 81.55 & 191.31 & 52.50 & 220.36 \\ 
+  2016.00 & 158.15 & 94.70 & 221.60 & 61.12 & 255.19 & 175.53 & 107.56 & 243.50 & 71.58 & 279.48 \\ 
+  2016.50 & 136.07 & 62.83 & 209.32 & 24.05 & 248.09 & 136.86 & 59.25 & 214.47 & 18.17 & 255.56 \\ 
+  2017.00 & 158.15 & 76.28 & 240.03 & 32.93 & 283.38 & 175.96 & 88.60 & 263.32 & 42.36 & 309.57 \\ 
+  2017.50 & 136.07 & 46.39 & 225.75 & -1.09 & 273.23 & 137.29 & 42.24 & 232.34 & -8.08 & 282.66 \\ 
+  2018.00 & 158.15 & 61.29 & 255.02 & 10.02 & 306.29 & 176.39 & 73.23 & 279.56 & 18.61 & 334.17 \\ 
+  2018.50 & 136.07 & 32.53 & 239.61 & -22.28 & 294.42 & 137.72 & 27.97 & 247.48 & -30.14 & 305.58 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{BHL\AaA 12}
+\subsubsection{plots for BHL\AaA 12}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-12} 
+
+\newpage
+\subsubsection{Outputs for BHL\AaA 12}
+\begin{multicols}{2}
+
+
+$ ETS(M,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.9998999 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  197.6983 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -46.29324 
+\item  aic :  96.58649 
+\item  bic :  96.98094 
+\item  aicc :  98.58649 
+\item  mse :  4093.483 
+\item  amse :  7794.077 
+\item  sigma2 :  0.04341452 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{1}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -44.93373 
+\item  aic :  95.86745 
+\item  bic :  96.45912 
+\item  aicc :  100.6675 
+\item  sigma2 :  1270.791 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  intercept :  140.6222 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 12 :  0.2961832 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:26:58 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 316.00 & 231.62 & 400.38 & 186.95 & 445.05 & 297.11 & 251.43 & 342.80 & 227.24 & 366.98 \\ 
+  2016.00 & 316.00 & 195.39 & 436.62 & 131.54 & 500.46 & 297.11 & 251.43 & 342.80 & 227.24 & 366.98 \\ 
+  2017.00 & 316.00 & 166.68 & 465.33 & 87.63 & 544.37 & 297.11 & 251.43 & 342.80 & 227.24 & 366.98 \\ 
+  2018.00 & 316.00 & 141.69 & 490.31 & 49.42 & 582.59 & 297.11 & 251.43 & 342.80 & 227.24 & 366.98 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA 1}
+\subsubsection{plots for SSL216\AaA 1}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-13} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA 1}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.005319404 
+\item  beta :  0.0001000067 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  2.375512 
+\item  b :  0.06171269 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -372.4305 
+\item  aic :  752.8609 
+\item  bic :  763.1183 
+\item  aicc :  753.3005 
+\item  mse :  24.4009 
+\item  amse :  24.33956 
+\item  sigma2 :  24.4009 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  0.0003254674 
+\item  RMSE :  3.217913 
+\item  MAE :  2.482079 
+\item  MPE :  -83.64312 
+\item  MAPE :  108.2681 
+\item  MASE :  0.6659235 
+\item  ACF1 :  -0.08735863 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,1,1)(0,0,0)_{12}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -286.3655 
+\item  aic :  578.7311 
+\item  bic :  586.3927 
+\item  aicc :  578.9948 
+\item  sigma2 :  25.58856 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ma1 :  -0.9445451 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 1 :  0.02173453 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  2.482755 
+\item  RMSE :  4.059544 
+\item  MAE :  3.434531 
+\item  MPE :  -18.20187 
+\item  MAPE :  76.11344 
+\item  MASE :  0.9214596 
+\item  ACF1 :  -0.06769864 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:08 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 8.27 & 1.94 & 14.60 & -1.41 & 17.95 & 5.52 & -0.97 & 12.00 & -4.40 & 15.43 \\ 
+  2014.08 & 8.33 & 2.00 & 14.66 & -1.35 & 18.01 & 5.62 & -0.87 & 12.12 & -4.31 & 15.55 \\ 
+  2014.17 & 8.39 & 2.06 & 14.72 & -1.29 & 18.07 & 5.73 & -0.77 & 12.23 & -4.22 & 15.67 \\ 
+  2014.25 & 8.45 & 2.12 & 14.78 & -1.23 & 18.13 & 6.23 & -0.28 & 12.74 & -3.73 & 16.19 \\ 
+  2014.33 & 8.51 & 2.18 & 14.84 & -1.17 & 18.19 & 6.23 & -0.29 & 12.75 & -3.74 & 16.21 \\ 
+  2014.42 & 8.57 & 2.24 & 14.90 & -1.11 & 18.25 & 6.23 & -0.30 & 12.76 & -3.76 & 16.22 \\ 
+  2014.50 & 8.63 & 2.30 & 14.96 & -1.05 & 18.32 & 6.36 & -0.18 & 12.90 & -3.64 & 16.37 \\ 
+  2014.58 & 8.69 & 2.36 & 15.02 & -0.99 & 18.38 & 6.36 & -0.19 & 12.91 & -3.66 & 16.38 \\ 
+  2014.67 & 8.75 & 2.42 & 15.09 & -0.93 & 18.44 & 6.36 & -0.20 & 12.92 & -3.67 & 16.40 \\ 
+  2014.75 & 8.82 & 2.48 & 15.15 & -0.87 & 18.50 & 8.55 & 1.97 & 15.12 & -1.50 & 18.60 \\ 
+  2014.83 & 8.88 & 2.54 & 15.21 & -0.81 & 18.56 & 8.55 & 1.96 & 15.13 & -1.52 & 18.61 \\ 
+  2014.92 & 8.94 & 2.61 & 15.27 & -0.75 & 18.62 & 8.55 & 1.95 & 15.14 & -1.53 & 18.63 \\ 
+  2015.00 & 9.00 & 2.67 & 15.33 & -0.69 & 18.68 & 5.75 & -0.85 & 12.36 & -4.34 & 15.85 \\ 
+  2015.08 & 9.06 & 2.73 & 15.39 & -0.62 & 18.74 & 5.81 & -0.80 & 12.42 & -4.30 & 15.92 \\ 
+  2015.17 & 9.12 & 2.79 & 15.45 & -0.56 & 18.80 & 5.86 & -0.76 & 12.48 & -4.27 & 15.98 \\ 
+  2015.25 & 9.18 & 2.85 & 15.51 & -0.50 & 18.87 & 6.39 & -0.24 & 13.02 & -3.75 & 16.53 \\ 
+  2015.33 & 9.24 & 2.91 & 15.57 & -0.44 & 18.93 & 6.39 & -0.25 & 13.03 & -3.76 & 16.55 \\ 
+  2015.42 & 9.30 & 2.97 & 15.64 & -0.38 & 18.99 & 6.39 & -0.26 & 13.04 & -3.78 & 16.56 \\ 
+  2015.50 & 9.36 & 3.03 & 15.70 & -0.32 & 19.05 & 6.43 & -0.23 & 13.09 & -3.75 & 16.62 \\ 
+  2015.58 & 9.42 & 3.09 & 15.76 & -0.26 & 19.11 & 6.43 & -0.24 & 13.10 & -3.77 & 16.63 \\ 
+  2015.67 & 9.49 & 3.15 & 15.82 & -0.20 & 19.17 & 6.43 & -0.25 & 13.11 & -3.78 & 16.65 \\ 
+  2015.75 & 9.55 & 3.21 & 15.88 & -0.14 & 19.23 & 8.32 & 1.63 & 15.01 & -1.91 & 18.55 \\ 
+  2015.83 & 9.61 & 3.27 & 15.94 & -0.08 & 19.29 & 8.32 & 1.62 & 15.02 & -1.93 & 18.56 \\ 
+  2015.92 & 9.67 & 3.33 & 16.00 & -0.02 & 19.36 & 8.32 & 1.61 & 15.02 & -1.94 & 18.58 \\ 
+  2016.00 & 9.73 & 3.40 & 16.06 & 0.04 & 19.42 & 5.78 & -0.94 & 12.50 & -4.49 & 16.05 \\ 
+  2016.08 & 9.79 & 3.46 & 16.12 & 0.10 & 19.48 & 5.86 & -0.87 & 12.59 & -4.43 & 16.15 \\ 
+  2016.17 & 9.85 & 3.52 & 16.19 & 0.16 & 19.54 & 5.94 & -0.80 & 12.67 & -4.37 & 16.24 \\ 
+  2016.25 & 9.91 & 3.58 & 16.25 & 0.22 & 19.60 & 6.46 & -0.29 & 13.20 & -3.86 & 16.77 \\ 
+  2016.33 & 9.97 & 3.64 & 16.31 & 0.29 & 19.66 & 6.46 & -0.30 & 13.21 & -3.88 & 16.79 \\ 
+  2016.42 & 10.03 & 3.70 & 16.37 & 0.35 & 19.72 & 6.46 & -0.31 & 13.22 & -3.89 & 16.80 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA 2}
+\subsubsection{plots for SSL216\AaA 2}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-14} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA 2}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0001000833 
+\item  beta :  0.0001000262 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  4.667526 
+\item  b :  0.242016 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -191.3055 
+\item  aic :  390.611 
+\item  bic :  398.0958 
+\item  aicc :  391.5412 
+\item  mse :  60.33188 
+\item  amse :  59.87302 
+\item  sigma2 :  60.33188 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  -6.113098e-05 
+\item  RMSE :  5.520442 
+\item  MAE :  4.463833 
+\item  MPE :  -20.73266 
+\item  MAPE :  43.03726 
+\item  MASE :  0.5072538 
+\item  ACF1 :  -0.4577195 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{6}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -165.2379 
+\item  aic :  336.4757 
+\item  bic :  342.0894 
+\item  aicc :  337.0212 
+\item  sigma2 :  57.22749 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  intercept :  6.464751 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 2 :  0.04379392 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  7.276029 
+\item  RMSE :  9.857763 
+\item  MAE :  8.039951 
+\item  MPE :  29.23597 
+\item  MAPE :  40.14914 
+\item  MASE :  0.9136308 
+\item  ACF1 :  -0.09829107 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:10 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 16.50 & 6.54 & 26.45 & 1.27 & 31.72 & 6.08 & -3.61 & 15.78 & -8.74 & 20.91 \\ 
+  2014.17 & 16.74 & 6.78 & 26.69 & 1.51 & 31.96 & 7.95 & -1.74 & 17.65 & -6.87 & 22.78 \\ 
+  2014.33 & 16.98 & 7.02 & 26.93 & 1.75 & 32.20 & 9.35 & -0.35 & 19.04 & -5.48 & 24.17 \\ 
+  2014.50 & 17.22 & 7.27 & 27.17 & 2.00 & 32.44 & 10.01 & 0.32 & 19.71 & -4.82 & 24.84 \\ 
+  2014.67 & 17.46 & 7.51 & 27.42 & 2.24 & 32.68 & 14.44 & 4.74 & 24.13 & -0.39 & 29.26 \\ 
+  2014.83 & 17.70 & 7.75 & 27.66 & 2.48 & 32.93 & 18.82 & 9.12 & 28.51 & 3.99 & 33.65 \\ 
+  2015.00 & 17.94 & 7.99 & 27.90 & 2.72 & 33.17 & 7.29 & -2.40 & 16.99 & -7.53 & 22.12 \\ 
+  2015.17 & 18.18 & 8.23 & 28.14 & 2.96 & 33.41 & 8.81 & -0.88 & 18.51 & -6.01 & 23.64 \\ 
+  2015.33 & 18.43 & 8.47 & 28.38 & 3.20 & 33.65 & 10.09 & 0.39 & 19.78 & -4.74 & 24.91 \\ 
+  2015.50 & 18.67 & 8.71 & 28.62 & 3.44 & 33.89 & 10.33 & 0.64 & 20.03 & -4.50 & 25.16 \\ 
+  2015.67 & 18.91 & 8.95 & 28.86 & 3.69 & 34.13 & 14.17 & 4.47 & 23.86 & -0.66 & 28.99 \\ 
+  2015.83 & 19.15 & 9.20 & 29.10 & 3.93 & 34.37 & 17.98 & 8.29 & 27.68 & 3.16 & 32.81 \\ 
+  2016.00 & 19.39 & 9.44 & 29.35 & 4.17 & 34.62 & 7.22 & -2.48 & 16.91 & -7.61 & 22.04 \\ 
+  2016.17 & 19.63 & 9.68 & 29.59 & 4.41 & 34.86 & 8.91 & -0.79 & 18.60 & -5.92 & 23.73 \\ 
+  2016.33 & 19.87 & 9.92 & 29.83 & 4.65 & 35.10 & 10.24 & 0.54 & 19.93 & -4.59 & 25.07 \\ 
+  2016.50 & 20.12 & 10.16 & 30.07 & 4.89 & 35.34 & 10.69 & 0.99 & 20.38 & -4.14 & 25.52 \\ 
+  2016.67 & 20.36 & 10.40 & 30.31 & 5.13 & 35.58 & 14.81 & 5.12 & 24.51 & -0.02 & 29.64 \\ 
+  2016.83 & 20.60 & 10.64 & 30.55 & 5.37 & 35.82 & 18.90 & 9.21 & 28.60 & 4.08 & 33.73 \\ 
+  2017.00 & 20.84 & 10.89 & 30.79 & 5.62 & 36.06 & 7.77 & -1.93 & 17.46 & -7.06 & 22.59 \\ 
+  2017.17 & 21.08 & 11.13 & 31.04 & 5.86 & 36.31 & 9.37 & -0.32 & 19.07 & -5.45 & 24.20 \\ 
+  2017.33 & 21.32 & 11.37 & 31.28 & 6.10 & 36.55 & 10.68 & 0.98 & 20.37 & -4.15 & 25.51 \\ 
+  2017.50 & 21.56 & 11.61 & 31.52 & 6.34 & 36.79 & 11.03 & 1.33 & 20.72 & -3.80 & 25.85 \\ 
+  2017.67 & 21.81 & 11.85 & 31.76 & 6.58 & 37.03 & 15.01 & 5.32 & 24.71 & 0.18 & 29.84 \\ 
+  2017.83 & 22.05 & 12.09 & 32.00 & 6.82 & 37.27 & 18.97 & 9.27 & 28.66 & 4.14 & 33.79 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA 3}
+\subsubsection{plots for SSL216\AaA 3}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-15} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA 3}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0001000133 
+\item  beta :  0.0001000023 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  8.079453 
+\item  b :  0.488227 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -125.2787 
+\item  aic :  258.5573 
+\item  bic :  264.4203 
+\item  aicc :  260.0388 
+\item  mse :  78.58494 
+\item  amse :  76.66702 
+\item  sigma2 :  78.58494 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(3,1,0)(1,0,0)_{4}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -107.1492 
+\item  aic :  226.2985 
+\item  bic :  234.9024 
+\item  aicc :  229.7985 
+\item  sigma2 :  69.29821 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ar1 :  -1.005576 
+\item  ar2 :  -0.9628224 
+\item  ar3 :  -0.8053021 
+\item  sar1 :  -0.5206692 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 3 :  0.04291688 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:12 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 24.14 & 12.78 & 35.50 & 6.77 & 41.52 & 21.50 & 10.83 & 32.16 & 5.18 & 37.81 \\ 
+  2014.25 & 24.63 & 13.27 & 35.99 & 7.26 & 42.01 & 22.23 & 11.56 & 32.90 & 5.92 & 38.55 \\ 
+  2014.50 & 25.12 & 13.76 & 36.48 & 7.74 & 42.49 & 15.17 & 4.49 & 25.85 & -1.16 & 31.50 \\ 
+  2014.75 & 25.60 & 14.24 & 36.96 & 8.23 & 42.98 & 30.61 & 19.80 & 41.42 & 14.08 & 47.14 \\ 
+  2015.00 & 26.09 & 14.73 & 37.45 & 8.72 & 43.47 & 19.66 & 8.44 & 30.89 & 2.49 & 36.83 \\ 
+  2015.25 & 26.58 & 15.22 & 37.94 & 9.20 & 43.95 & 20.35 & 9.12 & 31.57 & 3.17 & 37.52 \\ 
+  2015.50 & 27.06 & 15.70 & 38.43 & 9.69 & 44.44 & 16.68 & 5.42 & 27.93 & -0.53 & 33.89 \\ 
+  2015.75 & 27.55 & 16.19 & 38.91 & 10.18 & 44.93 & 29.18 & 17.78 & 40.58 & 11.75 & 46.62 \\ 
+  2016.00 & 28.04 & 16.68 & 39.40 & 10.66 & 45.41 & 20.49 & 7.88 & 33.09 & 1.21 & 39.76 \\ 
+  2016.25 & 28.52 & 17.16 & 39.89 & 11.15 & 45.90 & 20.74 & 8.13 & 33.34 & 1.46 & 40.02 \\ 
+  2016.50 & 29.01 & 17.65 & 40.37 & 11.64 & 46.39 & 17.62 & 4.96 & 30.28 & -1.74 & 36.98 \\ 
+  2016.75 & 29.50 & 18.14 & 40.86 & 12.12 & 46.87 & 32.15 & 19.28 & 45.01 & 12.47 & 51.83 \\ 
+  2017.00 & 29.98 & 18.62 & 41.35 & 12.61 & 47.36 & 19.91 & 6.72 & 33.10 & -0.26 & 40.08 \\ 
+  2017.25 & 30.47 & 19.11 & 41.83 & 13.10 & 47.85 & 20.41 & 7.22 & 33.61 & 0.23 & 40.59 \\ 
+  2017.50 & 30.96 & 19.60 & 42.32 & 13.58 & 48.33 & 18.88 & 5.61 & 32.15 & -1.41 & 39.18 \\ 
+  2017.75 & 31.45 & 20.08 & 42.81 & 14.07 & 48.82 & 32.44 & 18.97 & 45.92 & 11.84 & 53.05 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA 4}
+\subsubsection{plots for SSL216\AaA 4}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-16} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA 4}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0001000091 
+\item  beta :  0.0001000045 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  7.511143 
+\item  b :  1.057549 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -96.32286 
+\item  aic :  200.6457 
+\item  bic :  205.3579 
+\item  aicc :  202.751 
+\item  mse :  127.5937 
+\item  amse :  125.9493 
+\item  sigma2 :  127.5937 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{3}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -90.64194 
+\item  aic :  187.2839 
+\item  bic :  190.818 
+\item  aicc :  188.4839 
+\item  sigma2 :  111.6778 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  intercept :  12.23774 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 4 :  0.04760678 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:13 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 33.96 & 19.48 & 48.43 & 11.82 & 56.10 & 16.12 & 2.58 & 29.67 & -4.59 & 36.84 \\ 
+  2014.33 & 35.02 & 20.54 & 49.49 & 12.88 & 57.16 & 19.90 & 6.36 & 33.45 & -0.81 & 40.62 \\ 
+  2014.67 & 36.07 & 21.60 & 50.55 & 13.94 & 58.21 & 33.66 & 20.12 & 47.21 & 12.95 & 54.37 \\ 
+  2015.00 & 37.13 & 22.66 & 51.61 & 14.99 & 59.27 & 17.17 & 3.63 & 30.71 & -3.54 & 37.88 \\ 
+  2015.33 & 38.19 & 23.71 & 52.67 & 16.05 & 60.33 & 20.84 & 7.30 & 34.39 & 0.13 & 41.56 \\ 
+  2015.67 & 39.25 & 24.77 & 53.72 & 17.11 & 61.39 & 33.28 & 19.73 & 46.82 & 12.56 & 53.99 \\ 
+  2016.00 & 40.31 & 25.83 & 54.78 & 18.17 & 62.45 & 17.94 & 4.40 & 31.48 & -2.77 & 38.65 \\ 
+  2016.33 & 41.36 & 26.89 & 55.84 & 19.22 & 63.50 & 21.66 & 8.11 & 35.20 & 0.94 & 42.37 \\ 
+  2016.67 & 42.42 & 27.95 & 56.90 & 20.28 & 64.56 & 34.59 & 21.05 & 48.14 & 13.88 & 55.30 \\ 
+  2017.00 & 43.48 & 29.00 & 57.96 & 21.34 & 65.62 & 18.82 & 5.27 & 32.36 & -1.90 & 39.53 \\ 
+  2017.33 & 44.54 & 30.06 & 59.01 & 22.40 & 66.68 & 22.51 & 8.97 & 36.06 & 1.80 & 43.23 \\ 
+  2017.67 & 45.60 & 31.12 & 60.07 & 23.46 & 67.74 & 35.26 & 21.72 & 48.80 & 14.55 & 55.97 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA 6}
+\subsubsection{plots for SSL216\AaA 6}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-17} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA 6}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.3338296 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  16.1568 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -74.41265 
+\item  aic :  152.8253 
+\item  bic :  154.606 
+\item  aicc :  153.6253 
+\item  mse :  216.5237 
+\item  amse :  212.279 
+\item  sigma2 :  216.5237 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(1,1,0)(1,0,0)_{2}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -63.42548 
+\item  aic :  134.851 
+\item  bic :  138.1838 
+\item  aicc :  138.1843 
+\item  sigma2 :  162.6258 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ar1 :  -0.6916704 
+\item  sar1 :  -0.5906315 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 6 :  0.02812653 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:15 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 46.22 & 27.36 & 65.08 & 17.38 & 75.06 & 44.07 & 27.72 & 60.41 & 19.07 & 69.06 \\ 
+  2015.50 & 46.22 & 26.34 & 66.10 & 15.81 & 76.62 & 39.94 & 22.84 & 57.04 & 13.78 & 66.09 \\ 
+  2016.00 & 46.22 & 25.37 & 67.07 & 14.33 & 78.11 & 45.02 & 27.62 & 62.42 & 18.41 & 71.63 \\ 
+  2016.50 & 46.22 & 24.44 & 68.00 & 12.91 & 79.53 & 49.64 & 31.68 & 67.61 & 22.17 & 77.12 \\ 
+  2017.00 & 46.22 & 23.55 & 68.89 & 11.54 & 80.90 & 45.44 & 25.21 & 65.67 & 14.50 & 76.38 \\ 
+  2017.50 & 46.22 & 22.69 & 69.75 & 10.23 & 82.21 & 43.96 & 22.87 & 65.05 & 11.71 & 76.21 \\ 
+  2018.00 & 46.22 & 21.86 & 70.58 & 8.96 & 83.47 & 45.89 & 24.24 & 67.54 & 12.78 & 79.00 \\ 
+  2018.50 & 46.22 & 21.06 & 71.38 & 7.74 & 84.70 & 47.56 & 25.19 & 69.94 & 13.35 & 81.78 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA 12}
+\subsubsection{plots for SSL216\AaA 12}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-18} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA 12}
+\begin{multicols}{2}
+
+
+$ ETS(A,N,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.6189166 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  34.93054 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -37.95705 
+\item  aic :  79.9141 
+\item  bic :  80.30855 
+\item  aicc :  81.9141 
+\item  mse :  511.6678 
+\item  amse :  696.5081 
+\item  sigma2 :  511.6678 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(0,0,0)_{1}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -40.70025 
+\item  aic :  85.40051 
+\item  bic :  85.79495 
+\item  aicc :  87.40051 
+\item  sigma2 :  496.0236 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  DEP\AaA EQUIP\AaA CAP\AaA 12 :  0.1205028 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:16 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 92.16 & 63.17 & 121.15 & 47.83 & 136.49 & 63.67 & 35.13 & 92.21 & 20.02 & 107.32 \\ 
+  2016.00 & 92.16 & 58.07 & 126.25 & 40.02 & 144.30 & 63.67 & 35.13 & 92.21 & 20.02 & 107.32 \\ 
+  2017.00 & 92.16 & 53.63 & 130.68 & 33.24 & 151.08 & 63.67 & 35.13 & 92.21 & 20.02 & 107.32 \\ 
+  2018.00 & 92.16 & 49.66 & 134.66 & 27.16 & 157.15 & 63.67 & 35.13 & 92.21 & 20.02 & 107.32 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA CAT\AaA 1}
+\subsubsection{plots for SSL216\AaA CAT\AaA 1}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-19} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA CAT\AaA 1}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0001000021 
+\item  beta :  0.0001000009 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  0.3156259 
+\item  b :  0.0349313 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -268.5082 
+\item  aic :  545.0165 
+\item  bic :  555.2739 
+\item  aicc :  545.456 
+\item  mse :  2.799871 
+\item  amse :  2.79848 
+\item  sigma2 :  2.799871 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  0.0006192279 
+\item  RMSE :  2.147828 
+\item  MAE :  1.842324 
+\item  MPE :  -49.64309 
+\item  MAPE :  76.55424 
+\item  MASE :  0.6537278 
+\item  ACF1 :  0.006724096 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,1,1)(0,0,0)_{12}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -183.1346 
+\item  aic :  372.2692 
+\item  bic :  379.9308 
+\item  aicc :  372.5329 
+\item  sigma2 :  2.86213 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ma1 :  -0.9013729 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 1 :  0.01183504 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  0.9306485 
+\item  RMSE :  2.34292 
+\item  MAE :  1.930208 
+\item  MPE :  -12.739 
+\item  MAPE :  56.76187 
+\item  MASE :  0.6849125 
+\item  ACF1 :  0.04762958 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:24 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 3.66 & 1.52 & 5.81 & 0.38 & 6.94 & 2.61 & 0.44 & 4.78 & -0.71 & 5.93 \\ 
+  2014.08 & 3.70 & 1.55 & 5.84 & 0.42 & 6.97 & 2.67 & 0.49 & 4.85 & -0.66 & 6.00 \\ 
+  2014.17 & 3.73 & 1.59 & 5.87 & 0.45 & 7.01 & 2.72 & 0.54 & 4.91 & -0.62 & 6.07 \\ 
+  2014.25 & 3.76 & 1.62 & 5.91 & 0.48 & 7.04 & 3.00 & 0.80 & 5.20 & -0.37 & 6.36 \\ 
+  2014.33 & 3.80 & 1.65 & 5.94 & 0.52 & 7.08 & 3.00 & 0.79 & 5.21 & -0.38 & 6.38 \\ 
+  2014.42 & 3.83 & 1.69 & 5.98 & 0.55 & 7.11 & 3.00 & 0.78 & 5.22 & -0.40 & 6.39 \\ 
+  2014.50 & 3.87 & 1.72 & 6.01 & 0.59 & 7.15 & 3.07 & 0.84 & 5.30 & -0.34 & 6.48 \\ 
+  2014.58 & 3.90 & 1.76 & 6.05 & 0.62 & 7.18 & 3.07 & 0.83 & 5.31 & -0.36 & 6.50 \\ 
+  2014.67 & 3.94 & 1.79 & 6.08 & 0.66 & 7.22 & 3.07 & 0.82 & 5.32 & -0.37 & 6.51 \\ 
+  2014.75 & 3.97 & 1.83 & 6.12 & 0.69 & 7.25 & 4.26 & 2.00 & 6.52 & 0.80 & 7.72 \\ 
+  2014.83 & 4.01 & 1.86 & 6.15 & 0.73 & 7.29 & 4.26 & 1.99 & 6.53 & 0.79 & 7.73 \\ 
+  2014.92 & 4.04 & 1.90 & 6.18 & 0.76 & 7.32 & 4.26 & 1.98 & 6.54 & 0.77 & 7.75 \\ 
+  2015.00 & 4.07 & 1.93 & 6.22 & 0.80 & 7.35 & 2.74 & 0.45 & 5.03 & -0.77 & 6.24 \\ 
+  2015.08 & 4.11 & 1.97 & 6.25 & 0.83 & 7.39 & 2.77 & 0.47 & 5.07 & -0.75 & 6.29 \\ 
+  2015.17 & 4.14 & 2.00 & 6.29 & 0.86 & 7.42 & 2.79 & 0.48 & 5.11 & -0.74 & 6.33 \\ 
+  2015.25 & 4.18 & 2.03 & 6.32 & 0.90 & 7.46 & 3.09 & 0.77 & 5.41 & -0.46 & 6.64 \\ 
+  2015.33 & 4.21 & 2.07 & 6.36 & 0.93 & 7.49 & 3.09 & 0.76 & 5.42 & -0.48 & 6.65 \\ 
+  2015.42 & 4.25 & 2.10 & 6.39 & 0.97 & 7.53 & 3.09 & 0.75 & 5.43 & -0.49 & 6.67 \\ 
+  2015.50 & 4.28 & 2.14 & 6.43 & 1.00 & 7.56 & 3.11 & 0.76 & 5.46 & -0.49 & 6.70 \\ 
+  2015.58 & 4.32 & 2.17 & 6.46 & 1.04 & 7.60 & 3.11 & 0.75 & 5.47 & -0.50 & 6.72 \\ 
+  2015.67 & 4.35 & 2.21 & 6.50 & 1.07 & 7.63 & 3.11 & 0.74 & 5.48 & -0.52 & 6.73 \\ 
+  2015.75 & 4.39 & 2.24 & 6.53 & 1.11 & 7.67 & 4.13 & 1.75 & 6.51 & 0.50 & 7.77 \\ 
+  2015.83 & 4.42 & 2.28 & 6.56 & 1.14 & 7.70 & 4.13 & 1.74 & 6.52 & 0.48 & 7.79 \\ 
+  2015.92 & 4.45 & 2.31 & 6.60 & 1.17 & 7.73 & 4.13 & 1.74 & 6.53 & 0.47 & 7.80 \\ 
+  2016.00 & 4.49 & 2.34 & 6.63 & 1.21 & 7.77 & 2.75 & 0.34 & 5.16 & -0.93 & 6.43 \\ 
+  2016.08 & 4.52 & 2.38 & 6.67 & 1.24 & 7.80 & 2.80 & 0.38 & 5.21 & -0.90 & 6.49 \\ 
+  2016.17 & 4.56 & 2.41 & 6.70 & 1.28 & 7.84 & 2.84 & 0.41 & 5.26 & -0.87 & 6.55 \\ 
+  2016.25 & 4.59 & 2.45 & 6.74 & 1.31 & 7.87 & 3.12 & 0.68 & 5.56 & -0.61 & 6.85 \\ 
+  2016.33 & 4.63 & 2.48 & 6.77 & 1.35 & 7.91 & 3.12 & 0.67 & 5.57 & -0.62 & 6.86 \\ 
+  2016.42 & 4.66 & 2.52 & 6.81 & 1.38 & 7.94 & 3.12 & 0.67 & 5.58 & -0.63 & 6.87 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA CAT\AaA 2}
+\subsubsection{plots for SSL216\AaA CAT\AaA 2}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-20} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA CAT\AaA 2}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0002648408 
+\item  beta :  0.0002648371 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  0.523346 
+\item  b :  0.1411234 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -136.3722 
+\item  aic :  280.7444 
+\item  bic :  288.2292 
+\item  aicc :  281.6747 
+\item  mse :  6.116405 
+\item  amse :  6.109017 
+\item  sigma2 :  6.116405 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  -0.0003084155 
+\item  RMSE :  3.361731 
+\item  MAE :  2.762747 
+\item  MPE :  -19.92213 
+\item  MAPE :  41.17165 
+\item  MASE :  0.5525493 
+\item  ACF1 :  -0.22338 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(2,1,2)(0,0,0)_{6}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -100.3445 
+\item  aic :  212.689 
+\item  bic :  223.7899 
+\item  aicc :  214.789 
+\item  sigma2 :  4.367896 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ar1 :  0.630385 
+\item  ar2 :  -0.7177764 
+\item  ma1 :  -1.334891 
+\item  ma2 :  0.8798962 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 2 :  0.01833599 
+\end{itemize}
+\item accuracy:
+\begin{itemize}
+\item  ME :  1.127798 
+\item  RMSE :  3.32107 
+\item  MAE :  2.579388 
+\item  MPE :  2.549716 
+\item  MAPE :  25.98312 
+\item  MASE :  0.5158776 
+\item  ACF1 :  -0.3576961 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:26 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 7.39 & 4.22 & 10.56 & 2.55 & 12.24 & 4.52 & 1.84 & 7.20 & 0.42 & 8.62 \\ 
+  2014.17 & 7.53 & 4.36 & 10.70 & 2.69 & 12.38 & 3.11 & 0.32 & 5.91 & -1.16 & 7.39 \\ 
+  2014.33 & 7.67 & 4.50 & 10.84 & 2.83 & 12.52 & 3.97 & 1.18 & 6.76 & -0.30 & 8.24 \\ 
+  2014.50 & 7.81 & 4.64 & 10.98 & 2.97 & 12.66 & 5.99 & 3.05 & 8.93 & 1.50 & 10.49 \\ 
+  2014.67 & 7.95 & 4.78 & 11.12 & 3.11 & 12.80 & 8.75 & 5.19 & 12.31 & 3.30 & 14.19 \\ 
+  2014.83 & 8.09 & 4.93 & 11.26 & 3.25 & 12.94 & 9.90 & 5.78 & 14.02 & 3.60 & 16.20 \\ 
+  2015.00 & 8.23 & 5.07 & 11.40 & 3.39 & 13.08 & 4.00 & -0.33 & 8.32 & -2.62 & 10.61 \\ 
+  2015.17 & 8.38 & 5.21 & 11.54 & 3.53 & 13.22 & 4.44 & 0.04 & 8.84 & -2.29 & 11.17 \\ 
+  2015.33 & 8.52 & 5.35 & 11.68 & 3.67 & 13.36 & 5.63 & 1.11 & 10.15 & -1.28 & 12.54 \\ 
+  2015.50 & 8.66 & 5.49 & 11.83 & 3.81 & 13.50 & 6.28 & 1.52 & 11.05 & -1.01 & 13.57 \\ 
+  2015.67 & 8.80 & 5.63 & 11.97 & 3.95 & 13.64 & 7.76 & 2.71 & 12.82 & 0.03 & 15.50 \\ 
+  2015.83 & 8.94 & 5.77 & 12.11 & 4.09 & 13.78 & 8.89 & 3.63 & 14.15 & 0.85 & 16.93 \\ 
+  2016.00 & 9.08 & 5.91 & 12.25 & 4.23 & 13.92 & 4.17 & -1.21 & 9.55 & -4.05 & 12.40 \\ 
+  2016.17 & 9.22 & 6.05 & 12.39 & 4.37 & 14.06 & 5.09 & -0.41 & 10.59 & -3.33 & 13.51 \\ 
+  2016.33 & 9.36 & 6.19 & 12.53 & 4.51 & 14.20 & 5.93 & 0.26 & 11.60 & -2.74 & 14.60 \\ 
+  2016.50 & 9.50 & 6.33 & 12.67 & 4.65 & 14.34 & 6.14 & 0.28 & 12.01 & -2.82 & 15.11 \\ 
+  2016.67 & 9.64 & 6.47 & 12.81 & 4.79 & 14.49 & 7.69 & 1.65 & 13.72 & -1.54 & 16.91 \\ 
+  2016.83 & 9.78 & 6.61 & 12.95 & 4.93 & 14.63 & 9.26 & 3.10 & 15.43 & -0.17 & 18.69 \\ 
+  2017.00 & 9.92 & 6.75 & 13.09 & 5.07 & 14.77 & 4.65 & -1.65 & 10.94 & -4.98 & 14.27 \\ 
+  2017.17 & 10.06 & 6.89 & 13.23 & 5.21 & 14.91 & 5.45 & -0.98 & 11.88 & -4.39 & 15.28 \\ 
+  2017.33 & 10.20 & 7.03 & 13.37 & 5.35 & 15.05 & 6.04 & -0.54 & 12.62 & -4.03 & 16.10 \\ 
+  2017.50 & 10.34 & 7.17 & 13.51 & 5.49 & 15.19 & 6.12 & -0.60 & 12.85 & -4.16 & 16.41 \\ 
+  2017.67 & 10.48 & 7.31 & 13.65 & 5.63 & 15.33 & 7.72 & 0.86 & 14.58 & -2.77 & 18.21 \\ 
+  2017.83 & 10.62 & 7.45 & 13.79 & 5.77 & 15.47 & 9.37 & 2.40 & 16.35 & -1.30 & 20.05 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA CAT\AaA 3}
+\subsubsection{plots for SSL216\AaA CAT\AaA 3}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-21} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA CAT\AaA 3}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.005479229 
+\item  beta :  0.005479189 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  0.4269085 
+\item  b :  0.3385663 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -93.51364 
+\item  aic :  195.0273 
+\item  bic :  200.8902 
+\item  aicc :  196.5088 
+\item  mse :  10.79267 
+\item  amse :  10.71851 
+\item  sigma2 :  10.79267 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(2,1,0)(0,0,0)_{4}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -78.90382 
+\item  aic :  165.8076 
+\item  bic :  171.5436 
+\item  aicc :  167.3461 
+\item  sigma2 :  11.31926 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ar1 :  -0.7586325 
+\item  ar2 :  -0.5078865 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 3 :  0.01153071 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:28 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 11.32 & 7.11 & 15.53 & 4.88 & 17.75 & 5.76 & 1.45 & 10.07 & -0.84 & 12.35 \\ 
+  2014.25 & 11.64 & 7.43 & 15.85 & 5.20 & 18.08 & 7.03 & 2.59 & 11.47 & 0.25 & 13.81 \\ 
+  2014.50 & 11.97 & 7.76 & 16.18 & 5.53 & 18.41 & 9.38 & 4.75 & 14.01 & 2.29 & 16.46 \\ 
+  2014.75 & 12.30 & 8.09 & 16.51 & 5.86 & 18.75 & 10.93 & 5.53 & 16.33 & 2.67 & 19.18 \\ 
+  2015.00 & 12.63 & 8.41 & 16.85 & 6.18 & 19.08 & 7.04 & 1.42 & 12.65 & -1.55 & 15.62 \\ 
+  2015.25 & 12.96 & 8.74 & 17.18 & 6.51 & 19.41 & 8.59 & 2.72 & 14.46 & -0.39 & 17.57 \\ 
+  2015.50 & 13.29 & 9.06 & 17.51 & 6.83 & 19.75 & 7.95 & 1.68 & 14.23 & -1.65 & 17.55 \\ 
+  2015.75 & 13.62 & 9.39 & 17.84 & 7.15 & 20.08 & 11.13 & 4.61 & 17.64 & 1.16 & 21.09 \\ 
+  2016.00 & 13.94 & 9.71 & 18.18 & 7.47 & 20.42 & 7.57 & 0.79 & 14.35 & -2.79 & 17.94 \\ 
+  2016.25 & 14.27 & 10.03 & 18.52 & 7.79 & 20.76 & 8.14 & 1.07 & 15.21 & -2.67 & 18.95 \\ 
+  2016.50 & 14.60 & 10.35 & 18.85 & 8.10 & 21.10 & 8.35 & 1.04 & 15.65 & -2.82 & 19.52 \\ 
+  2016.75 & 14.93 & 10.67 & 19.19 & 8.41 & 21.45 & 11.62 & 4.08 & 19.17 & 0.08 & 23.16 \\ 
+  2017.00 & 15.26 & 10.99 & 19.53 & 8.72 & 21.80 & 7.54 & -0.26 & 15.33 & -4.38 & 19.45 \\ 
+  2017.25 & 15.59 & 11.30 & 19.88 & 9.03 & 22.15 & 8.41 & 0.40 & 16.43 & -3.85 & 20.67 \\ 
+  2017.50 & 15.92 & 11.61 & 20.22 & 9.34 & 22.50 & 8.53 & 0.29 & 16.77 & -4.07 & 21.13 \\ 
+  2017.75 & 16.25 & 11.92 & 20.57 & 9.64 & 22.85 & 11.60 & 3.14 & 20.06 & -1.33 & 24.53 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA CAT\AaA 4}
+\subsubsection{plots for SSL216\AaA CAT\AaA 4}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-22} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA CAT\AaA 4}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0001000234 
+\item  beta :  0.000100004 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  0.9628432 
+\item  b :  0.5569127 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -67.57261 
+\item  aic :  143.1452 
+\item  bic :  147.8574 
+\item  aicc :  145.2505 
+\item  mse :  11.62313 
+\item  amse :  11.56322 
+\item  sigma2 :  11.62313 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(1,1,0)(0,0,0)_{3}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -58.6388 
+\item  aic :  123.2776 
+\item  bic :  126.6841 
+\item  aicc :  124.5408 
+\item  sigma2 :  12.30767 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  ar1 :  -0.6815206 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 4 :  0.01227002 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:29 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2014.00 & 14.88 & 10.51 & 19.25 & 8.20 & 21.56 & 7.84 & 3.34 & 12.34 & 0.96 & 14.72 \\ 
+  2014.33 & 15.43 & 11.06 & 19.80 & 8.75 & 22.12 & 12.69 & 7.97 & 17.41 & 5.48 & 19.91 \\ 
+  2014.67 & 15.99 & 11.62 & 20.36 & 9.31 & 22.67 & 13.60 & 7.71 & 19.48 & 4.59 & 22.60 \\ 
+  2015.00 & 16.55 & 12.18 & 20.92 & 9.86 & 23.23 & 11.15 & 4.90 & 17.40 & 1.59 & 20.70 \\ 
+  2015.33 & 17.10 & 12.73 & 21.47 & 10.42 & 23.79 & 10.87 & 3.90 & 17.83 & 0.22 & 21.51 \\ 
+  2015.67 & 17.66 & 13.29 & 22.03 & 10.98 & 24.34 & 14.91 & 7.54 & 22.27 & 3.64 & 26.17 \\ 
+  2016.00 & 18.22 & 13.85 & 22.59 & 11.53 & 24.90 & 10.38 & 2.48 & 18.28 & -1.70 & 22.46 \\ 
+  2016.33 & 18.77 & 14.40 & 23.14 & 12.09 & 25.46 & 11.73 & 3.43 & 20.03 & -0.97 & 24.42 \\ 
+  2016.67 & 19.33 & 14.96 & 23.70 & 12.65 & 26.01 & 14.80 & 6.05 & 23.55 & 1.42 & 28.18 \\ 
+  2017.00 & 19.89 & 15.52 & 24.26 & 13.20 & 26.57 & 10.91 & 1.78 & 20.04 & -3.05 & 24.88 \\ 
+  2017.33 & 20.44 & 16.07 & 24.81 & 13.76 & 27.13 & 11.74 & 2.22 & 21.27 & -2.82 & 26.31 \\ 
+  2017.67 & 21.00 & 16.63 & 25.37 & 14.32 & 27.68 & 15.11 & 5.23 & 25.00 & -0.01 & 30.23 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA CAT\AaA 6}
+\subsubsection{plots for SSL216\AaA CAT\AaA 6}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-23} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA CAT\AaA 6}
+\begin{multicols}{2}
+
+
+$ ETS(A,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.0001000499 
+\item  beta :  0.000100007 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  0.4898752 
+\item  b :  1.403338 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -50.33045 
+\item  aic :  108.6609 
+\item  bic :  112.2224 
+\item  aicc :  111.7378 
+\item  mse :  14.90804 
+\item  amse :  14.77106 
+\item  sigma2 :  14.90804 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,0,0)(1,1,0)_{2}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -39.22469 
+\item  aic :  86.44939 
+\item  bic :  89.53974 
+\item  aicc :  90.08575 
+\item  sigma2 :  16.0592 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  sar1 :  -0.7911318 
+\item  drift :  1.43371 
+\item  DEP\AaA EQUIP\AaA CAP\AaA 6 :  -0.003154144 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:31 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 27.14 & 22.20 & 32.09 & 19.58 & 34.71 & 23.29 & 18.16 & 28.43 & 15.44 & 31.15 \\ 
+  2015.50 & 28.55 & 23.60 & 33.50 & 20.98 & 36.11 & 26.98 & 21.85 & 32.12 & 19.13 & 34.84 \\ 
+  2016.00 & 29.95 & 25.00 & 34.90 & 22.38 & 37.52 & 31.31 & 26.06 & 36.55 & 23.28 & 39.33 \\ 
+  2016.50 & 31.35 & 26.40 & 36.30 & 23.79 & 38.92 & 34.45 & 29.20 & 39.70 & 26.43 & 42.47 \\ 
+  2017.00 & 32.76 & 27.81 & 37.70 & 25.19 & 40.32 & 30.05 & 23.27 & 36.82 & 19.69 & 40.41 \\ 
+  2017.50 & 34.16 & 29.21 & 39.11 & 26.59 & 41.73 & 33.62 & 26.85 & 40.40 & 23.26 & 43.98 \\ 
+  2018.00 & 35.56 & 30.61 & 40.51 & 27.99 & 43.13 & 36.13 & 29.13 & 43.12 & 25.43 & 46.83 \\ 
+  2018.50 & 36.96 & 32.02 & 41.91 & 29.40 & 44.53 & 39.36 & 32.36 & 46.36 & 28.66 & 50.06 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{SSL216\AaA CAT\AaA 12}
+\subsubsection{plots for SSL216\AaA CAT\AaA 12}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-24} 
+
+\newpage
+\subsubsection{Outputs for SSL216\AaA CAT\AaA 12}
+\begin{multicols}{2}
+
+
+$ ETS(M,A,N) $
+\begin{enumerate}
+\item parameters:
+\begin{itemize}
+\item  alpha :  0.09075673 
+\item  beta :  0.0001001149 
+\end{itemize}
+\item init state:
+\begin{itemize}
+\item  l :  2.213071 
+\item  b :  4.889976 
+\end{itemize}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -25.2272 
+\item  aic :  58.4544 
+\item  bic :  59.24329 
+\item  aicc :  68.4544 
+\item  mse :  44.75596 
+\item  amse :  41.4023 
+\item  sigma2 :  0.05820149 
+\end{itemize}
+\end{enumerate}
+
+\columnbreak
+
+
+ $ARIMAX(0,1,0)(0,0,0)_{1}$ 
+\begin{enumerate}
+\item informations critereas:
+\begin{itemize}
+\item  loglik :  -27.82876 
+\item  aic :  59.65752 
+\item  bic :  59.8164 
+\item  aicc :  62.05752 
+\item  sigma2 :  189.9438 
+\end{itemize}
+
+\item coefficients:
+\begin{itemize}
+\item  DEP\AaA EQUIP\AaA CAP\AaA 12 :  -0.007997158 
+\end{itemize}
+\end{enumerate}
+\end{multicols}
+% latex table generated in R 3.1.3 by xtable 1.7-4 package
+% Fri Apr 03 00:27:32 2015
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrr}
+  \hline
+time & ETS  & lo 80 & up 80 & lo 95 & up 95 & ARIMAX  & lo 80 & up 80 & lo 95 & up 95 \\ 
+  \hline
+2015.00 & 51.73 & 35.74 & 67.72 & 27.27 & 76.19 & 55.98 & 38.32 & 73.64 & 28.97 & 82.99 \\ 
+  2016.00 & 56.62 & 39.05 & 74.19 & 29.75 & 83.49 & 55.98 & 31.00 & 80.96 & 17.78 & 94.18 \\ 
+  2017.00 & 61.51 & 42.36 & 80.66 & 32.23 & 90.79 & 55.98 & 25.39 & 86.57 & 9.19 & 102.77 \\ 
+  2018.00 & 66.40 & 45.67 & 87.13 & 34.70 & 98.10 & 55.98 & 20.66 & 91.31 & 1.96 & 110.00 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+\newpage
+=======
+\subsection{BHL\AaA CAT\AaA 2}
+\subsubsection{plots for BHL\AaA CAT\AaA 2}
+
+\newpage
+\subsection{BHL\AaA CAT\AaA 3}
+\subsubsection{plots for BHL\AaA CAT\AaA 3}
+\begin{kframe}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in ets(My\_S\_OOSample, model = fit): You've got to be joking. I need more data!}}\end{kframe}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-2} 
+>>>>>>> 0045005e91abe88da3f37b2f7f9b64c2f363c0d0
+
+
+
+
+\end{document}

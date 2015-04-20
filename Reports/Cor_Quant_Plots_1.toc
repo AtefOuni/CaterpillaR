@@ -1,0 +1,10 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Correlation}{2}{section.1}
+\contentsline {section}{\numberline {2}ets, nnetar, arimax on Cat products}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}BHL\_1}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}plots for BHL\_1}{5}{subsubsection.2.1.1}
+\contentsline {subsection}{\numberline {2.2}BHL\_2}{8}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}plots for BHL\_2}{8}{subsubsection.2.2.1}
+\contentsline {subsection}{\numberline {2.3}BHL\_3}{11}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}plots for BHL\_3}{11}{subsubsection.2.3.1}
+\contentsline {section}{\numberline {3}Simulation}{14}{section.3}

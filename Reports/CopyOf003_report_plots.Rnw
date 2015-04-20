@@ -1,0 +1,326 @@
+<<echo=FALSE,error=FALSE,message=FALSE,warning=FALSE>>=
+
+library(tikzDevice)
+library(forecast)
+library(xtable)
+library(ggplot2)
+library(gridExtra)
+library(XLConnect)
+
+
+# library(ggplot2)
+# library(knitr)
+
+load("../Data/Data.RData")
+
+Classe_Prod <- list(c("BHL", "BHL_CAT"),
+                    c("BHL", "BHL"),
+                    c("SSL", "SSL216"))
+
+# Classe_Prod <- list(c("BHL", "BHL"))
+@
+
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+
+\begin{document}
+
+
+\tableofcontents
+
+
+\section{Results for automatic ets and ARIMA on Cat products}
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+ArimaX <- "DEP_EQUIP_CAP"
+
+for(i in Classe_Prod) {
+  for(j in 1:3) {
+
+    # Section et sous section du doc latex
+    
+    sub_name <- paste(c(strsplit(i[2], "_")[[1]], j), collapse="\\AaA ")
+    
+    cat("\\subsection{",sub_name,"}\n",sep="")
+    cat("\\subsubsection{plots for ",sub_name,"}\n",sep="")
+    
+    # S
+    S <- Cat[[paste(i[1], j, sep = "_")]][, i[2]]
+    
+    # Out of sample and First Obs
+    
+    OOS_Period <- as.numeric(Inputs[Inputs$Input == "Out_of_Sample", "Val"])*2*j
+    FObs_Period <- as.numeric(Inputs[Inputs$Input == "First_Obs", "Val"])
+    P_OOS <- 3
+    
+    if(j>P_OOS) OOS_Period <- 0
+    
+    #Bounds 
+    
+    Xmin <- min(time(S))
+    Xmax_OOS <- max(time(S))
+    Xmin_OOS <- min(Xmax_OOS,time(S)[length(S) -ceiling(OOS_Period/j)])
+    X_FObs <- 2011
+    Xmax <- 2016
+
+    
+    # Sample In, Out_Of_Sample ans Sample_First_Obs
+    S_In <- window(S, end = Xmin_OOS)
+    S_FObs <- window(S, start = X_FObs)    
+    
+    # H periods for forecasts
+
+    H <- 12/j + 1
+    # ETS Sample, Insample, First_Obs
+    
+    #Exponential smoothing
+    
+    fit <- ets(S)
+    fit_fore <- forecast(fit, h = H)
+    fit_In <- ets(S_In)
+    fit_In_fore <- forecast(fit_In, h = 2* H)
+    
+    fit_FObs <- ets(S_FObs)
+    fit_FObs_fore <- forecast(fit_FObs, h = H)
+    
+    
+    fit.nn <- nnetar(S)
+    fit.nn_fore <- forecast(fit.nn, h = H)
+    
+    #Arimax
+
+    S_ArimaX <- ts.intersect(S,X[[paste(ArimaX, j, sep = "_")]])[,1] 
+    S_ArimaX_In <- ts.intersect(S_In,X[[paste(ArimaX, j, sep = "_")]])[,1] 
+    
+    S_Dummy <- ts(0, start = min(time(S_ArimaX)), end = max(time(S_ArimaX))+H/frequency(S_ArimaX), frequency = frequency(S_ArimaX))
+    S_Dummy[time(S_ArimaX)==time(S_ArimaX)[S_ArimaX==max(S_ArimaX)]]=1
+    
+    My_S_Dummy <- ts.intersect(S,S_Dummy)[,2] 
+    My_S_Dummy_In <- ts.intersect(S_In,S_Dummy)[,2] 
+
+    My_ArimaX <- ts.intersect(S,X[[paste(ArimaX, j, sep = "_")]])[,2]
+    My_ArimaX_In <- ts.intersect(S_In,X[[paste(ArimaX, j, sep = "_")]])[,2]
+    
+#        fit.ar <- auto.arima(My_S_Sample)
+    fit.ar.Xreg <- auto.arima(My_ArimaX)
+    fit.ar.Xreg_In <- auto.arima(My_ArimaX_In)
+    My_ArimaX_fore <- forecast(fit.ar.Xreg, h = H)$mean
+    My_S_Dummy_fore <- ts.intersect(My_ArimaX_fore,S_Dummy)[,2]
+    fit.ar <- auto.arima(S_ArimaX, xreg = cbind(My_ArimaX,My_S_Dummy))
+    fit.ar_In <- auto.arima(S_ArimaX_In, xreg = cbind(My_ArimaX_In,My_S_Dummy_In))
+    fit.ar_fore <- forecast(fit.ar,xreg = cbind(My_ArimaX_fore, My_S_Dummy_fore), h = H)
+
+    
+    S.df <- data.frame(t = time(S),y = S)
+    S.df.fit <- data.frame(t = time(fit$fitted),y = fit$fitted)
+    S.df.ar.fit <- data.frame(t = time(fitted(fit.ar)),y = fitted(fit.ar))
+    
+    if(j<=P_OOS) {
+      S_OOS <- window(S, start = Xmin_OOS + 1/frequency(S))
+      
+      Xreg_OOS <- ts.intersect(S_OOS,X[[paste(ArimaX, j, sep = "_")]])[,2] 
+      S_Dummy_OOS <- ts.intersect(S_OOS,S_Dummy)[,2] 
+      
+      fit_OOS <- ets(S_OOS, model = fit_In)
+      fit.ar_OOS <- Arima(S_OOS, model = fit.ar_In, xreg = cbind(Xreg_OOS,S_Dummy_OOS))
+      
+      S.df.fit_OOS <- data.frame(t = time(fit_OOS$fitted),y = fit_OOS$fitted)
+      S.df.ar.fit_OOS <- data.frame(t = time(fitted(fit.ar_OOS)),y = fitted(fit.ar_OOS))
+    }
+
+    S.df.fit.nn_fore <- data.frame(t = time(fit.nn_fore$mean), f_mean = fit.nn_fore$mean)
+      
+    S.df.fit_fore <- data.frame(t = time(fit_fore$mean), f_mean = fit_fore$mean,
+                      f_lo_80 = fit_fore$lower[,1], f_up_80 = fit_fore$upper[,1],
+                      f_lo_95 = fit_fore$lower[,2], f_up_95 = fit_fore$upper[,2])
+
+    S.df.fit_FObs_fore <- data.frame(t = time(fit_FObs_fore$mean), f_mean = fit_FObs_fore$mean,
+                      f_lo_80 = fit_FObs_fore$lower[,1], f_up_80 = fit_FObs_fore$upper[,1],
+                      f_lo_95 = fit_FObs_fore$lower[,2], f_up_95 = fit_FObs_fore$upper[,2])
+
+    S.df.fit.ar_fore <- data.frame(t = time(fit.ar_fore$mean), f_mean = fit.ar_fore$mean,
+                      f_lo_80 = fit.ar_fore$lower[,1], f_up_80 = fit.ar_fore$upper[,1],
+                      f_lo_95 = fit.ar_fore$lower[,2], f_up_95 = fit.ar_fore$upper[,2])
+
+
+    # Nom variables
+  
+    Arima_Model <- paste("$ARIMAX(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")_{",
+                         fit.ar$arma[5],"}$",
+                         sep="")
+
+    Arima_Model_t <- paste("ARIMAX(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")",
+                         fit.ar$arma[5],
+                         sep="")
+    
+  #fit plot  
+  
+  Ymin <- min(S.df$y,S.df.fit_fore$f_lo_95)
+  Ymax <- max(S.df$y,S.df.fit_fore$f_up_95)
+  
+  p.ets <- ggplot(data= S.df,aes(x= t , y=  y))+theme_bw()
+
+
+  p.ets <- p.ets + geom_line(colour = colors()[24]) +
+  geom_point(colour = colors()[142], size = 1) 
+ 
+
+  p.ets <- p.ets +  geom_line(data = S.df.fit_fore, aes(x = t, y = f_mean), colour = colors()[374] )+
+  geom_point(data = S.df.fit_fore,aes(x = t, y = f_mean), colour = colors()[1], size = 1)+
+  geom_ribbon(data = S.df.fit_fore,aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .1, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit_fore,aes(y = f_mean, ymin = f_up_80, ymax = f_up_95), alpha = .3, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit_fore,aes(y = f_mean, ymin = f_lo_95, ymax = f_lo_80), alpha = .3, fill = colors()[374])+
+  scale_x_continuous(breaks = Xmin:Xmax)+
+  scale_y_continuous(breaks = round(seq(Ymin, Ymax, by = round(Ymax-Ymin)/10)))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = fit$method)
+  
+  #fit OOS plot  
+  
+  Ymin <- min(S.df$y,S.df.fit_fore$f_lo_95)
+  Ymax <- max(S.df$y,S.df.fit_fore$f_up_95)
+  
+  p.ets_oos <- ggplot(data= S.df,aes(x= t , y=  y))+theme_bw()
+
+  if(j<=P_OOS) {
+    p.ets_oos <- p.ets_oos + geom_rect(xmax=Xmax_OOS, xmin = Xmin_OOS + 1/frequency(S), ymin = Ymin, ymax = Ymax , fill = colors()[245] ,alpha = 0.1) 
+    p.ets_oos <- p.ets_oos + geom_line(data =S.df.fit_OOS,aes(x = t, y = y), colour = colors()[17]) 
+  } 
+
+  p.ets_oos <- p.ets_oos + geom_line(colour = colors()[24]) +
+  geom_point(colour = colors()[142], size = 1) 
+ 
+
+  p.ets_oos <- p.ets_oos +  geom_line(data = S.df.fit_fore[S.df.fit_fore$t>=Xmax_OOS,], aes(x = t, y = f_mean), colour = colors()[374] )+
+  geom_point(data = S.df.fit_fore[S.df.fit_fore$t>=Xmax_OOS,],aes(x = t, y = f_mean), colour = colors()[1], size = 1)+
+  geom_ribbon(data = S.df.fit_fore[S.df.fit_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .1, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit_fore[S.df.fit_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_up_80, ymax = f_up_95), alpha = .3, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit_fore[S.df.fit_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_lo_95, ymax = f_lo_80), alpha = .3, fill = colors()[374])+
+  scale_x_continuous(breaks = Xmin:Xmax)+
+  scale_y_continuous(breaks = round(seq(Ymin,Ymax,length.out=10)))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = fit$method)
+  
+  #fit_FObs plot  
+  
+  Ymin <- min(S.df$y,S.df.fit_FObs_fore$f_lo_95)
+  Ymax <- max(S.df$y,S.df.fit_FObs_fore$f_up_95)
+  
+  p.ets_FObs <- ggplot(data= S.df,aes(x= t , y=  y))+theme_bw()
+  p.ets_FObs <- p.ets_FObs + geom_rect(xmax=X_FObs - 1/frequency(S) , xmin = Xmin, ymin = Ymin, ymax = Ymax , fill = colors()[101], alpha = .1 ) 
+
+  p.ets_FObs <- p.ets_FObs + geom_line(colour = colors()[24]) +
+  geom_point(colour = colors()[142], size = 1) 
+ 
+
+  p.ets_FObs <- p.ets_FObs +  geom_line(data = S.df.fit_FObs_fore[S.df.fit_FObs_fore$t>=Xmax_OOS,], aes(x = t, y = f_mean), colour = colors()[374] )+
+  geom_point(data = S.df.fit_FObs_fore[S.df.fit_FObs_fore$t>=Xmax_OOS,],aes(x = t, y = f_mean), colour = colors()[1], size = 1)+
+  geom_ribbon(data = S.df.fit_FObs_fore[S.df.fit_FObs_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .1, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit_FObs_fore[S.df.fit_FObs_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_up_80, ymax = f_up_95), alpha = .3, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit_FObs_fore[S.df.fit_FObs_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_lo_95, ymax = f_lo_80), alpha = .3, fill = colors()[374])+
+  scale_x_continuous(breaks = Xmin:Xmax)+
+  scale_y_continuous(breaks = round(seq(Ymin,Ymax,length.out=10)))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = fit$method)
+
+
+  grid.arrange(p.ets, p.ets_FObs, nrow = 2, ncol = 1)  
+   
+
+    cat("\n\\newpage\n")
+
+  #fit nn  
+  
+  Ymin <- min(S.df$y,S.df.fit.nn_fore$f_mean)
+  Ymax <- max(S.df$y,S.df.fit.nn_fore$f_mean)
+  
+  p.nn <- ggplot(data= S.df,aes(x= t , y=  y))+theme_bw()
+
+  
+
+  p.nn <- p.nn + geom_line(colour = colors()[24]) +
+  geom_point(colour = colors()[142], size = 1) 
+ 
+
+  p.nn <- p.nn +  geom_line(data = S.df.fit.nn_fore[S.df.fit.nn_fore$t>=Xmax_OOS,], aes(x = t, y = f_mean), colour = colors()[374] )+
+  geom_point(data = S.df.fit.nn_fore[S.df.fit.nn_fore$t>=Xmax_OOS,],aes(x = t, y = f_mean), colour = colors()[1], size = 1)+
+  scale_x_continuous(breaks = Xmin:Xmax)+
+  scale_y_continuous(breaks = round(seq(Ymin,Ymax,length.out=10)))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = fit.nn$method)
+  
+  #fit.ar plot  
+  
+  Ymin <- min(S.df$y,S.df.fit.ar_fore$f_lo_95)
+  Ymax <- max(S.df$y,S.df.fit.ar_fore$f_up_95)
+  
+  p.ar <- ggplot(data= S.df,aes(x= t , y=  y))+theme_bw()
+
+#   if(j<=P_OOS) {
+#     p.ar <- p.ar + geom_rect(xmax=Xmax_OOS, xmin = Xmin_OOS + 1/frequency(S), ymin = Ymin, ymax = Ymax , fill = colors()[245] ,alpha = 0.1) 
+#     p.ar <- p.ar + geom_line(data =S.df.fit.ar_OOS,aes(x = t, y = y), colour = colors()[17]) 
+#   } 
+
+  p.ar <- p.ar + geom_line(colour = colors()[24]) +
+  geom_point(colour = colors()[142], size = 1) 
+ 
+
+  p.ar <- p.ar +  geom_line(data = S.df.fit.ar_fore[S.df.fit.ar_fore$t>=Xmax_OOS,], aes(x = t, y = f_mean), colour = colors()[374] )+
+  geom_point(data = S.df.fit.ar_fore[S.df.fit.ar_fore$t>=Xmax_OOS,],aes(x = t, y = f_mean), colour = colors()[1], size = 1)+
+  geom_ribbon(data = S.df.fit.ar_fore[S.df.fit.ar_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .1, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit.ar_fore[S.df.fit.ar_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_up_80, ymax = f_up_95), alpha = .3, fill = colors()[374])+
+  geom_ribbon(data = S.df.fit.ar_fore[S.df.fit.ar_fore$t>=Xmax_OOS,],aes(y = f_mean, ymin = f_lo_95, ymax = f_lo_80), alpha = .3, fill = colors()[374])+
+  scale_x_continuous(breaks = Xmin:Xmax)+
+  scale_y_continuous(breaks = round(seq(Ymin,Ymax,length.out=10)))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = Arima_Model_t)
+ 
+  grid.arrange(p.nn, p.ar, nrow = 2, ncol = 1)  
+
+ 
+ }
+}
+
+@
+
+
+
+\end{document}

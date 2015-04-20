@@ -1,0 +1,32 @@
+---
+title: "Lissage Exponentiel"
+output: word_document
+---
+
+```{r, echo = FALSE, warning = FALSE}
+
+load("../Data/Data.RData")
+
+require(forecast)
+Classe_Prod <- list()
+Classe_Prod[[1]] <- c("BHL", "BHL_CAT")
+```
+
+# Produit BHL_CAT:
+
+```{r, echo = FALSE, results = 'markup'}
+for(i in Classe_Prod) {
+  for(j in c("MEN", "TRI", "SEM", "ANN")){
+    plot(Cat[[paste(i[1], j, sep = "_")]][, i[2]], ylab = paste(i[2], j, sep = "_"))
+    acf(Cat[[paste(i[1], j, sep = "_")]][, i[2]], main = paste(i[2], j, sep = "_"))
+    print("results of the automatic exponentiel smoothing:")
+    fit <- ets(Cat[[paste(i[1], j, sep = "_")]][, i[2]])
+    print(fit)
+    print("")
+    print("results of forecasts of the automatic exponentiel smoothing:")
+    print(forecast(fit))
+    plot(forecast(fit),main = paste("forecasts for the var ", i[2], j, sep = "_"))
+  }
+}
+```
+

@@ -1,0 +1,239 @@
+
+
+
+
+\documentclass[10pt,a4paper]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0, 0, 0}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.502,0,0.502}{\textbf{#1}}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.651,0.522,0}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{1,0.502,0}{#1}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{1,0,0.502}{\textbf{#1}}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.733,0.475,0.467}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.502,0.502,0.753}{\textbf{#1}}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0.502,0.753}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0,0.267,0.4}{#1}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+Loading data for accuracy purpose
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.933, 0.933, 0.933}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(forecast)}
+
+\hlkwd{load}\hlstd{(}\hlstr{"../Data/Data.RData"}\hlstd{)}
+
+\hlstd{X} \hlkwb{<-} \hlstd{Cat[[}\hlstr{"BHL_1"}\hlstd{]][,}\hlstr{"BHL"}\hlstd{]}
+
+\hlstd{X}
+\end{alltt}
+\begin{verbatim}
+##      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+## 2006  12  24  32  16  22  16   9   8  19  17  22   9
+## 2007  18   9  15  18  24  20  19  18  17  10  11  15
+## 2008  37  11  22  20  25  28  16  22  12  17  22  13
+## 2009  18  28  38   3  32  19  31  19  43  33  42  33
+## 2010  29  29  47  41  36  46  40  22   3  66  37  39
+## 2011   2  27  43  34  31  38  28  19  13  14  21  42
+## 2012  24  22  40  27  25  30  14  15  20  27  27  30
+## 2013  18  29  17  56  34  26  22  18  16  31  24  35
+## 2014  34  26  28  37  32  23   8  13  26  25  34  30
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+ETS model results and accuracy
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.933, 0.933, 0.933}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#ETS model results:}
+\hlstd{X_ets} \hlkwb{<-} \hlkwd{ets}\hlstd{(X)}
+\hlstd{X_ets}
+\end{alltt}
+\begin{verbatim}
+## ETS(M,N,N) 
+## 
+## Call:
+##  ets(y = X) 
+## 
+##   Smoothing parameters:
+##     alpha = 0.1214 
+## 
+##   Initial states:
+##     l = 17.8422 
+## 
+##   sigma:  0.4291
+## 
+##      AIC     AICc      BIC 
+## 1008.583 1008.697 1013.947
+\end{verbatim}
+\begin{alltt}
+\hlcom{# ETS accuracy}
+\hlkwd{accuracy}\hlstd{(X_ets)}
+\end{alltt}
+\begin{verbatim}
+##                    ME     RMSE      MAE       MPE     MAPE     MASE
+## Training set 0.641067 10.56825 7.784707 -39.19311 62.77463 0.769837
+##                    ACF1
+## Training set 0.03275658
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\newpage
+
+Mean Error(ME), Mean Absolute Error(MAE), Mean Squared Error(MSE) and Root Mean Squared Error (RMSE)  
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.933, 0.933, 0.933}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{X_fitted} \hlkwb{<-} \hlstd{X_ets}\hlopt{$}\hlstd{fitted}
+\hlstd{X_error} \hlkwb{<-} \hlstd{X} \hlopt{-} \hlstd{X_fitted}
+
+\hlcom{# Mean Error(ME):}
+\hlstd{X_ME} \hlkwb{<-} \hlkwd{mean}\hlstd{(X_error)}
+\hlstd{X_ME}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.641067
+\end{verbatim}
+\begin{alltt}
+\hlcom{# Mean Absolute Error(MAE):}
+\hlstd{X_MAE} \hlkwb{<-} \hlkwd{mean}\hlstd{(}\hlkwd{abs}\hlstd{(X_error))}
+\hlstd{X_MAE}
+\end{alltt}
+\begin{verbatim}
+## [1] 7.784707
+\end{verbatim}
+\begin{alltt}
+\hlcom{# Mean Squared Error(MSE):}
+\hlstd{X_MSE} \hlkwb{<-} \hlkwd{mean}\hlstd{(}\hlkwd{abs}\hlstd{(X_error}\hlopt{^}\hlnum{2}\hlstd{))}
+\hlstd{X_MSE}
+\end{alltt}
+\begin{verbatim}
+## [1] 111.6879
+\end{verbatim}
+\begin{alltt}
+\hlcom{#Root Mean Squared Error (RMSE):}
+\hlstd{X_RMSE} \hlkwb{<-} \hlkwd{sqrt}\hlstd{(X_MSE)}
+\hlstd{X_RMSE}
+\end{alltt}
+\begin{verbatim}
+## [1] 10.56825
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+Mean Percentage Error(MPE), Mean Absolute Percentage Error(MAPE) and Mean Absolute Scaled Error(MASE)  
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.933, 0.933, 0.933}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlstd{X_PE} \hlkwb{<-} \hlnum{100} \hlopt{*} \hlstd{X_error} \hlopt{/} \hlstd{X}
+
+\hlcom{#Mean Percentage Error(MPE):}
+\hlstd{X_MPE} \hlkwb{<-} \hlkwd{mean}\hlstd{(X_PE)}
+\hlstd{X_MPE}
+\end{alltt}
+\begin{verbatim}
+## [1] -39.19311
+\end{verbatim}
+\begin{alltt}
+\hlcom{#Mean Absolute Percentage Error(MAPE):}
+\hlstd{X_MAPE} \hlkwb{<-} \hlkwd{mean}\hlstd{(}\hlkwd{abs}\hlstd{(X_PE))}
+\hlstd{X_MAPE}
+\end{alltt}
+\begin{verbatim}
+## [1] 62.77463
+\end{verbatim}
+\begin{alltt}
+\hlcom{#Mean Absolute Scaled Error(MASE):}
+\hlstd{X_QE} \hlkwb{<-} \hlstd{X_error} \hlopt{/} \hlstd{(}\hlkwd{sum}\hlstd{(}\hlkwd{abs}\hlstd{(}\hlkwd{diff}\hlstd{(X)))}\hlopt{/}\hlstd{(}\hlkwd{length}\hlstd{(X)}\hlopt{-}\hlnum{1}\hlstd{))}
+\hlstd{X_MASE} \hlkwb{<-} \hlkwd{mean}\hlstd{(}\hlkwd{abs}\hlstd{(X_QE))}
+\hlstd{X_MASE}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.769837
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+Autocorrelation of errors at lag 1 (ACF1) 
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.933, 0.933, 0.933}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#Autocorrelation of errors at lag 1 (ACF1):}
+\hlstd{ACF1} \hlkwb{<-} \hlkwd{acf}\hlstd{(X_error,} \hlkwc{plot} \hlstd{=} \hlnum{FALSE}\hlstd{)}\hlopt{$}\hlstd{acf[}\hlnum{2}\hlstd{]}
+\hlstd{ACF1}
+\end{alltt}
+\begin{verbatim}
+## [1] 0.03275658
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\end{document}

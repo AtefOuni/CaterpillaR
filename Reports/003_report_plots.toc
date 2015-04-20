@@ -1,0 +1,4 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}ets, nnetar, arimax on Cat products}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}BHL\_1}{3}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}plots for BHL\_1}{3}{subsubsection.1.1.1}

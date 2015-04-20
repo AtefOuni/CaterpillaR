@@ -1,0 +1,85 @@
+<<echo=FALSE,error=FALSE,message=FALSE,warning=FALSE>>=
+
+library(tikzDevice)
+library(forecast)
+library(xtable)
+library(ggplot2)
+library(gridExtra)
+library(XLConnect)
+
+
+# library(ggplot2)
+# library(knitr)
+
+load("../Data/Data.RData")
+
+
+@
+
+
+\documentclass[10pt,a5paper,landscape]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+
+\begin{document}
+
+
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=5, error=TRUE>>=
+
+
+
+
+  for(j in c(1, 2, 3, 4, 6, 12)) {
+
+   
+    S1 <- Cat[[paste("BHL", j, sep = "_")]][, "BHL"]
+    S2 <- Cat[[paste("BHL", j, sep = "_")]][, "BHL_CAT"]
+    S3 <- X[[paste("DEP_EQUIP_CAP", j, sep = "_")]]
+    
+    S1.df <- data.frame(t = time(S1), y = S1*2)
+    S2.df <- data.frame(t = time(S2), y = S2*8)
+    S3.df <- data.frame(t = time(S3), y = S3)
+    
+    M <- max(S1,S2,S3)
+    p <- ggplot()+
+      theme_bw() + 
+      theme(panel.background = element_rect(fill = colors()[250] )) +
+      geom_line(data = S1.df, aes(x = t, y = y),colour = colors()[24]) +
+      geom_line(data = S2.df, aes(x = t, y = y),colour = colors()[142]) +
+      geom_line(data = S3.df, aes(x = t, y = y),colour = colors()[506]) +
+      scale_x_continuous(breaks = 2006:2015)+
+      xlab(NULL)+
+      ylab(NULL)+
+      annotate("text", x = 2007, y = M, label = paste("BHL",j,sep="_"), color = colors()[24])+
+      annotate("text", x = 2007, y = .95*M, label = paste("BHL_CAT",j,sep="_"), color = colors()[142])+
+      annotate("text", x = 2007, y = .9*M, label = paste("DEP_EQUIP_CAP",j,sep="_"), color = colors()[506])
+   
+      grid.arrange(p, nrow = 1, ncol = 1)
+
+    cat("\n\\newpage\n")
+    
+  
+}
+    
+@
+
+\end{document}

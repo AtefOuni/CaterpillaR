@@ -1,0 +1,6 @@
+The rough way
+
+git remote add origin https://github.com/AtefOuni/CaterpillaR.git
+git push --force
+git push -u origin master
+

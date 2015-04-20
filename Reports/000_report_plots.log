@@ -1,0 +1,2272 @@
+<<<<<<< HEAD
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.31)  27 MAR 2015 16:01
+=======
+<<<<<<< HEAD
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.3)  24 MAR 2015 21:08
+=======
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.10.31)  25 MAR 2015 16:26
+>>>>>>> 5dbdbf80b5ee05fad4a8b2efd2075f2f8527027f
+>>>>>>> cd640307e1c80cd29ffd820a713c985330397c27
+entering extended mode
+**000_report_plots.tex
+("D:\R projects\Caterpillar\Reports\000_report_plots.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\framed\framed.sty"
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip43
+\fb@frw=\dimen105
+\fb@frh=\dimen106
+\FrameRule=\dimen107
+\FrameSep=\dimen108
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\english.ldf"
+Language: english 2005/03/30 v3.3o English support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen109
+)
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\frenchb.ldf"
+Language: frenchb 2009/03/16 v2.3d French support from the babel system
+Package babel Info: Making : an active character on input line 120.
+Package babel Info: Making ; an active character on input line 121.
+Package babel Info: Making ! an active character on input line 122.
+Package babel Info: Making ? an active character on input line 123.
+\FB@Mht=\dimen110
+\std@mcc=\count89
+\dec@mcc=\count90
+\parindentFFN=\dimen111
+
+*************************************
+* Local config file frenchb.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\frenchb.cfg")))
+("C:\Program Files\MiKTeX 2.9\tex\latex\carlisle\scalefnt.sty")
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks15
+\pgfutil@tempdima=\dimen112
+\pgfutil@tempdimb=\dimen113
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.te
+x")) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def"
+\pgfutil@abb=\box26
+("C:\Program Files\MiKTeX 2.9\tex\latex\ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex"
+Package: pgfrcs 2013/12/20 v3.0.0 (rcs-revision 1.28)
+))
+Package: pgf 2013/12/18 v3.0.0 (rcs-revision 1.14)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+Package: pgfsys 2013/11/30 v3.0.0 (rcs-revision 1.47)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks16
+\pgfkeys@temptoks=\toks17
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
+x"
+\pgfkeys@tmptoks=\toks18
+))
+\pgf@x=\dimen114
+\pgf@y=\dimen115
+\pgf@xa=\dimen116
+\pgf@ya=\dimen117
+\pgf@xb=\dimen118
+\pgf@yb=\dimen119
+\pgf@xc=\dimen120
+\pgf@yc=\dimen121
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count91
+\c@pgf@countb=\count92
+\c@pgf@countc=\count93
+\c@pgf@countd=\count94
+\t@pgf@toka=\toks19
+\t@pgf@tokb=\toks20
+\t@pgf@tokc=\toks21
+ ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg"
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def"
+File: pgfsys-pdftex.def 2013/07/18  (rcs-revision 1.33)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+"
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.t
+ex"
+File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
+\pgfsyssoftpath@smallbuffer@items=\count95
+\pgfsyssoftpath@bigbuffer@items=\count96
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.t
+ex"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+Package: pgfcore 2010/04/11 v3.0.0 (rcs-revision 1.7)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen122
+\pgfmath@count=\count97
+\pgfmath@box=\box27
+\pgfmath@toks=\toks22
+\pgfmath@stack@operand=\toks23
+\pgfmath@stack@operation=\toks24
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometr
+ic.code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code
+.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.
+code.tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.t
+ex")
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarit
+hmetics.code.tex")))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count98
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+"
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen123
+\pgf@picmaxx=\dimen124
+\pgf@picminy=\dimen125
+\pgf@picmaxy=\dimen126
+\pgf@pathminx=\dimen127
+\pgf@pathmaxx=\dimen128
+\pgf@pathminy=\dimen129
+\pgf@pathmaxy=\dimen130
+\pgf@xx=\dimen131
+\pgf@xy=\dimen132
+\pgf@yx=\dimen133
+\pgf@yy=\dimen134
+\pgf@zx=\dimen135
+\pgf@zy=\dimen136
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.c
+ode.tex"
+File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
+\pgf@path@lastx=\dimen137
+\pgf@path@lasty=\dimen138
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.
+tex"
+File: pgfcorepathusage.code.tex 2013/12/13  (rcs-revision 1.23)
+\pgf@shorten@end@additional=\dimen139
+\pgf@shorten@start@additional=\dimen140
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+"
+File: pgfcorescopes.code.tex 2013/10/09  (rcs-revision 1.44)
+\pgfpic=\box28
+\pgf@hbox=\box29
+\pgf@layerbox@main=\box30
+\pgf@picture@serial@count=\count99
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.co
+de.tex"
+File: pgfcoregraphicstate.code.tex 2013/09/19  (rcs-revision 1.11)
+\pgflinewidth=\dimen141
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations
+.code.tex"
+File: pgfcoretransformations.code.tex 2013/10/10  (rcs-revision 1.17)
+\pgf@pt@x=\dimen142
+\pgf@pt@y=\dimen143
+\pgf@pt@temp=\dimen144
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.te
+x"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.
+code.tex"
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+"
+File: pgfcorearrows.code.tex 2013/11/07  (rcs-revision 1.40)
+\pgfarrowsep=\dimen145
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen146
+\pgf@sys@shading@range@num=\count100
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.te
+x"
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.t
+ex"
+File: pgfcoreexternal.code.tex 2013/07/15  (rcs-revision 1.20)
+\pgfexternal@startupbox=\box31
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+"
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.co
+de.tex"
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.t
+ex"
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2013/10/31  (rcs-revision 1.34)
+\pgfnodeparttextbox=\box32
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex"
+File: pgfmoduleplot.code.tex 2013/07/31  (rcs-revision 1.12)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.
+sty"
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.0 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen147
+\pgf@nodesepend=\dimen148
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.
+sty"
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.0 (rcs-revision 1.1)
+)) ("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
+Package: pgffor 2013/12/13 v3.0.0 (rcs-revision 1.25)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex")
+\pgffor@iter=\dimen149
+\pgffor@skip=\dimen150
+\pgffor@stack=\toks25
+\pgffor@toks=\toks26
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex"
+Package: tikz 2013/12/13 v3.0.0 (rcs-revision 1.142)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.
+code.tex"
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.0 (rcs-revision 1.20)
+\pgf@plot@mark@count=\count101
+\pgfplotmarksize=\dimen151
+)
+\tikz@lastx=\dimen152
+\tikz@lasty=\dimen153
+\tikz@lastxsaved=\dimen154
+\tikz@lastysaved=\dimen155
+\tikzleveldistance=\dimen156
+\tikzsiblingdistance=\dimen157
+\tikz@figbox=\box33
+\tikz@figbox@bg=\box34
+\tikz@tempbox=\box35
+\tikz@tempbox@bg=\box36
+\tikztreelevel=\count102
+\tikznumberofchildren=\count103
+\tikznumberofcurrentchild=\count104
+\tikz@fig@count=\count105
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count106
+\pgfmatrixcurrentcolumn=\count107
+\pgf@matrix@numberofcolumns=\count108
+)
+\tikz@expandcount=\count109
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikz
+librarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
+)))
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count110
+\mult@box=\box37
+\multicol@leftmargin=\dimen158
+\c@unbalance=\count111
+\c@collectmore=\count112
+\doublecol@number=\count113
+\multicoltolerance=\count114
+\multicolpretolerance=\count115
+\full@width=\dimen159
+\page@free=\dimen160
+\premulticols=\dimen161
+\postmulticols=\dimen162
+\multicolsep=\skip44
+\multicolbaselineskip=\skip45
+\partial@page=\box38
+\last@line=\box39
+\mult@rightbox=\box40
+\mult@grightbox=\box41
+\mult@gfirstbox=\box42
+\mult@firstbox=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\@tempa=\box55
+\@tempa=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\c@columnbadness=\count116
+\c@finalcolumnbadness=\count117
+\last@try=\dimen163
+\multicolovershoot=\dimen164
+\multicolundershoot=\dimen165
+\mult@nat@firstbox=\box61
+\colbreak@box=\box62
+\multicol@sort@counter=\count118
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\capt-of\capt-of.sty"
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen166
+\Hy@linkcounter=\count119
+\Hy@pagecounter=\count120
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count121
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count122
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen167
+\Fld@menulength=\count123
+\Field@Width=\dimen168
+\Fld@charsize=\dimen169
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count124
+\c@Item=\count125
+\c@Hfootnote=\count126
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count127
+\c@bookmark@seq@number=\count128
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip46
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\upquote\upquote.sty"
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+))
+<<<<<<< HEAD
+("D:\R projects\Caterpillar\Reports\000_report_plots.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 74.
+=======
+(D:\Caterpillar\Reports\000_report_plots.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 75.
+>>>>>>> 5dbdbf80b5ee05fad4a8b2efd2075f2f8527027f
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 75.
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count129
+\scratchdimen=\dimen170
+\scratchbox=\box63
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen171
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks28
+)
+LaTeX Info: Redefining \degres on input line 75.
+LaTeX Info: Redefining \dots on input line 75.
+LaTeX Info: Redefining \up on input line 75.
+ ABD: EveryShipout initializing macros
+<<<<<<< HEAD
+\AtBeginShipoutBox=\box64
+Package hyperref Info: Link coloring OFF on input line 74.
+=======
+\AtBeginShipoutBox=\box62
+Package hyperref Info: Link coloring OFF on input line 75.
+>>>>>>> 5dbdbf80b5ee05fad4a8b2efd2075f2f8527027f
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count135
+)
+LaTeX Info: Redefining \ref on input line 75.
+LaTeX Info: Redefining \pageref on input line 75.
+LaTeX Info: Redefining \nameref on input line 75.
+
+("D:\R projects\Caterpillar\Reports\000_report_plots.out")
+("D:\R projects\Caterpillar\Reports\000_report_plots.out")
+\@outlinefile=\write4
+
+("D:\R projects\Caterpillar\Reports\000_report_plots.toc"
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+)
+\tf@toc=\write5
+ [1
+
+<<<<<<< HEAD
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+
+Package xcolor Warning: Incompatible color definition on input line 107.
+
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 109.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 109.
+
+
+Package xcolor Warning: Incompatible color definition on input line 109.
+
+
+Overfull \hbox (24.73944pt too wide) in paragraph at lines 109--109
+[]\T1/cmtt/m/n/10 ## Error in HoltWinters(Cat[[paste(i[1], j, sep = "_")]][, i[
+2]], seasonal = "multiplicative"): data must
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 109.
+
+
+Package xcolor Warning: Incompatible color definition on input line 109.
+
+[3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 116.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 116.
+ ("D:\R projects\Caterpillar\Reports\000_report_plots.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 116.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 116.
+Package rerunfilecheck Info: File `000_report_plots.out' has not changed.
+(rerunfilecheck)             Checksum: E137DCF0CBE4456BCDF01922CA96C5D6;349.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 116.
+ ) 
+Here is how much of TeX's memory you used:
+ 16175 strings out of 493921
+ 302095 string characters out of 3147286
+ 356578 words of memory out of 3000000
+ 19186 multiletter control sequences out of 15000+200000
+ 8575 words of font info for 21 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 55i,5n,54p,419b,369s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\User\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
+ctt1000.pk> <C:\Users\User\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi600\ecbx1200.pk> <C:\Users\User\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
+nappen\ec\dpi600\ecrm1000.pk> <C:\Users\User\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Users\User\AppData\Local\MiKTeX\2.9\
+fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk>
+Output written on 000_report_plots.pdf (3 pages, 63784 bytes).
+PDF statistics:
+ 240 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+{C:/Users/atef.ouni.INSLOCAL/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+] [2]
+<figure/unnamed-chunk-2-1.pdf, id=165, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-1.pdf used on input line 118.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [3]
+Overfull \vbox (9.69312pt too high) has occurred while \output is active []
+
+
+[4 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (8.85399pt too wide) in paragraph at lines 158--159
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--258
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[5] <figure/unnamed-chunk-2-2.pdf, id=208, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-2.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-2.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-2.pdf used on input line 295.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [6 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-2.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 306--307
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 338--339
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 424--425
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 462--463
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[7] <figure/unnamed-chunk-2-3.pdf, id=245, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-3.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-3.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-3.pdf used on input line 470.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [8 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-3.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--483
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 490--491
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 513--514
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 568--569
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 581--582
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 599--600
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 611--612
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 613--614
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 646--647
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 648--649
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 670--671
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[9] <figure/unnamed-chunk-2-4.pdf, id=285, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-4.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-4.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-4.pdf used on input line 678.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [10 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-4.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--710
+[]\T1/cmr/m/n/10 sigma2 :
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 724--725
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 726--727
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 762--763
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--780
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--793
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 810--811
+[]\T1/cmr/m/n/10 ACF1 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 822--823
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 845--846
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--857
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 858--859
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 879--880
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[11] <figure/unnamed-chunk-2-5.pdf, id=325, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-5.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-5.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-5.pdf used on input line 887.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [12 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-5.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 904--905
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 927--928
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 965--966
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 982--983
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 995--996
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1014
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[13] <figure/unnamed-chunk-2-6.pdf, id=358, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-6.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-6.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-6.pdf used on input line 1022.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [14 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-6.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1040
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1058
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 1062--1063
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1065
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1075--1076
+[]\T1/cmr/m/n/10 intercept :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1099--1100
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1116--1117
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1129--1130
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[15] <figure/unnamed-chunk-2-7.pdf, id=390, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-7.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-7.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-7.pdf used on input line 1156.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [16 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-7.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1173--1174
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (8.85399pt too wide) in paragraph at lines 1196--1197
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1198--1199
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1233--1234
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1263--1264
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1293--1294
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1295--1296
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1336--1337
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1338--1339
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1368--1369
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[17] <figure/unnamed-chunk-2-8.pdf, id=430, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-8.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-8.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-8.pdf used on input line 1376.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [18 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-8.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1388--1389
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1400--1401
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1408--1409
+[]\T1/cmr/m/n/10 sigma2 :
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 1423--1424
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1425--1426
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1449--1450
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1463--1464
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1493--1494
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1523--1524
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1525--1526
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1549--1550
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1560--1561
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1562--1563
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1586--1587
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[19] <figure/unnamed-chunk-2-9.pdf, id=471, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-9.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-9.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-9.pdf used on input line 1594.
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [20 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-9.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1611--1612
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 1634--1635
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1636--1637
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1672--1673
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1702--1703
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1732--1733
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1734--1735
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[21] <figure/unnamed-chunk-2-10.pdf, id=507, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-10.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-10.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-10.pdf used on input line 1764.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [22 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-10.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1781--1782
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1799--1800
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 1804--1805
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1806--1807
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1843--1844
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1860--1861
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1873--1874
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1891--1892
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1903--1904
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1905--1906
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1926--1927
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1937--1938
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1939--1940
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1960--1961
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[23] <figure/unnamed-chunk-2-11.pdf, id=547, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-11.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-11.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-11.pdf used on input line 1968.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [24 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-11.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1980--1981
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1988--1989
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 2011--2012
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2013--2014
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2049--2050
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2066--2067
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2079--2080
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2097--2098
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2111--2112
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2144--2145
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[25] <figure/unnamed-chunk-2-12.pdf, id=588, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-12.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-12.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-12.pdf used on input line 2172.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [26 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-12.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 2189--2190
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2197--2198
+[]\T1/cmr/m/n/10 sigma2 :
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 2212--2213
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2214--2215
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2225--2226
+[]\T1/cmr/m/n/10 intercept :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2249--2250
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2266--2267
+[]\T1/cmr/m/n/10 ACF1 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2279--2280
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[27] <figure/unnamed-chunk-2-13.pdf, id=620, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-13.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-13.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-13.pdf used on input line 2306.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [28 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-13.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 2323--2324
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (8.85399pt too wide) in paragraph at lines 2346--2347
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2348--2349
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2385--2386
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2415--2416
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2445--2446
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2447--2448
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[29] <figure/unnamed-chunk-2-14.pdf, id=656, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-14.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-14.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-14.pdf used on input line 2485.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [30 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-14.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 2496--2497
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2497--2498
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2504--2505
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2522--2523
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 2527--2528
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2529--2530
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2566--2567
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2583--2584
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2596--2597
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2626--2627
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2628--2629
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2652--2653
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[31] <figure/unnamed-chunk-2-15.pdf, id=693, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-15.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-15.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-15.pdf used on input line 2660.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [32 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-15.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 2671--2672
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2672--2673
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2679--2680
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 2702--2703
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2704--2705
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2743--2744
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2773--2774
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2791--2792
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2803--2804
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2805--2806
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2827--2828
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[33] <figure/unnamed-chunk-2-16.pdf, id=729, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-16.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-16.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-16.pdf used on input line 2835.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [34 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-16.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 2846--2847
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2847--2848
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2854--2855
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 2877--2878
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2879--2880
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2916--2917
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2946--2947
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2976--2977
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2978--2979
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3010--3011
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3012--3013
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[35] <figure/unnamed-chunk-2-17.pdf, id=769, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-17.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-17.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-17.pdf used on input line 3041.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [36 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-17.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 3058--3059
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 3081--3082
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3083--3084
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3106--3107
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3120--3121
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3150--3151
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3168--3169
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3180--3181
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3182--3183
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3202--3203
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3215--3216
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3235--3236
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[37] <figure/unnamed-chunk-2-18.pdf, id=810, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-18.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-18.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-18.pdf used on input line 3243.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [38 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-18.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 3260--3261
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 3283--3284
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3285--3286
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3320--3321
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3350--3351
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[39] <figure/unnamed-chunk-2-19.pdf, id=842, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-19.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-19.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-19.pdf used on input line 3377.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [40 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-19.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 3388--3389
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3389--3390
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3396--3397
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (8.85399pt too wide) in paragraph at lines 3419--3420
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3421--3422
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3460--3461
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3477--3478
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3490--3491
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3520--3521
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3522--3523
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3552--3553
+[]\T1/cmr/m/n/10 ACF1 :
+ []
+
+[41] <figure/unnamed-chunk-2-20.pdf, id=878, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-20.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-20.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-20.pdf used on input line 3560.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [42 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-20.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 3571--3572
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3572--3573
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3579--3580
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3597--3598
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 3602--3603
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3604--3605
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3640--3641
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3670--3671
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3700--3701
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3702--3703
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[43] <figure/unnamed-chunk-2-21.pdf, id=915, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-21.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-21.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-21.pdf used on input line 3734.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [44 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-21.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 3745--3746
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3746--3747
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3753--3754
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 3776--3777
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3778--3779
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3815--3816
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3845--3846
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3863--3864
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3875--3876
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3877--3878
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3899--3900
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+[45] <figure/unnamed-chunk-2-22.pdf, id=951, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-22.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-22.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-22.pdf used on input line 3907.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [46 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-22.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 3918--3919
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3926--3927
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 3949--3950
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3951--3952
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3987--3988
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4017--4018
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4035--4036
+[]\T1/cmr/m/n/10 ACF1 : -
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4047--4048
+[]\T1/cmr/m/n/10 gamma :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4049--4050
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[47] <figure/unnamed-chunk-2-23.pdf, id=987, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-23.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-23.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-23.pdf used on input line 4078.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [48 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-23.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 4089--4090
+[]\T1/cmr/m/n/10 alpha :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4097--4098
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 4120--4121
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4122--4123
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4145--4146
+[]\T1/cmr/m/n/10 ACF1 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4159--4160
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4189--4190
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4221--4222
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4254--4255
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[49] <figure/unnamed-chunk-2-24.pdf, id=1028, 505.89pt x 686.565pt>
+File: figure/unnamed-chunk-2-24.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2-24.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-24.pdf used on input line 4282.
+
+(pdftex.def)             Requested size: 505.88875pt x 686.57379pt.
+ [50 <D:/Caterpillar/Reports/figure/unnamed-chunk-2-24.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 4294--4295
+[]\T1/cmr/m/n/10 beta :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4301--4302
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4309--4310
+[]\T1/cmr/m/n/10 sigma2 :
+ []
+
+
+Overfull \hbox (4.86786pt too wide) in paragraph at lines 4324--4325
+[]$\OML/cmm/m/it/10 ARIMA\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 1
+\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)(0\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML
+/cmm/m/it/10 ; \OT1/cmr/m/n/10 0)[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4326--4327
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4362--4363
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4392--4393
+[]\T1/cmr/m/n/10 informations cri-te-
+ []
+
+[51]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4423.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4423.
+ (D:\Caterpillar\Reports\000_report_plots.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4423.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4423.
+
+Package rerunfilecheck Info: File `000_report_plots.out' has not changed.
+(rerunfilecheck)             Checksum: E6271E40768D513090308EE495660573;1914.
+ ) 
+Here is how much of TeX's memory you used:
+ 15231 strings out of 494045
+ 270198 string characters out of 3148347
+ 352507 words of memory out of 3000000
+ 17644 multiletter control sequences out of 15000+200000
+ 8262 words of font info for 20 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 56i,5n,55p,428b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\atef.ouni.INSLOCAL\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknapp
+en\ec\dpi600\ecbx1200.pk> <C:\Users\atef.ouni.INSLOCAL\AppData\Local\MiKTeX\2.9
+\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\atef.ouni.INSLOCAL\A
+ppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1000.pk> <C:\Use
+rs\atef.ouni.INSLOCAL\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
+00\ecbx1440.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on 000_report_plots.pdf (51 pages, 435925 bytes).
+PDF statistics:
+ 1379 PDF objects out of 1440 (max. 8388607)
+ 602 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> 5dbdbf80b5ee05fad4a8b2efd2075f2f8527027f
+

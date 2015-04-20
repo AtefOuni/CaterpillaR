@@ -1,0 +1,243 @@
+<<echo=FALSE,error=FALSE,message=FALSE,warning=FALSE>>=
+
+library(forecast)
+library(xtable)
+library(ggplot2)
+library(gridExtra)
+
+
+load("../Data/Data.RData")
+
+source("../Scripts/Functions/Model_and_Plot.R")
+source("../Scripts/Functions/Lag_X.R")
+source("../Scripts/Functions/Quant_Sim.R")
+
+Classe_Prod <- list(c("BHL", "BHL"),
+                    c("BHL", "BHL_CAT"),
+                    c("SSL", "SSL216"),
+                    c("SSL", "SSL216_CAT"))
+
+Classe_Prod <- list(c("BHL", "BHL"))
+
+Simulations <- list()
+
+@
+
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+
+\begin{document}
+
+
+\tableofcontents
+\newpage
+
+\section{Correlation}
+
+% \begin{itemize}
+%   \item D: DEP\_EQUIP\_CAP
+%   \item B: BHL
+%   \item BC: BHL\_CAT
+%   \item P: BC/B
+% \end{itemize}
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+
+L <- 12
+
+  for(j in 1:3) {
+    
+    tmp <- paste("D:", paste("DEP_EQUIP_CAP", j, sep = "_"),
+        " | B:", paste("BHL", j, sep = "_"), 
+        " | BC:", paste("BHL_CAT", j, sep = "_"), 
+        " | P:", paste("BHL_CAT_", j,"/BHL_", j, sep = ""))
+    
+    tmp <- paste(strsplit(tmp, "_")[[1]], collapse="\\AaA ")
+    
+    cat("Variables: ", tmp, sep="")
+    
+    D <- X[[paste("DEP_EQUIP_CAP", j, sep = "_")]]
+    B <- Cat[[paste("BHL", j, sep = "_")]][,"BHL"]
+    BC <- Cat[[paste("BHL", j, sep = "_")]][,"BHL_CAT"]
+    P <- BC / B
+
+    D_L <- Lag_X(X = D, Lags = L, Var_Name = "D")
+    B_L <- Lag_X(X = B, Lags = L, Var_Name = "B")
+    BC_L <- Lag_X(X = BC, Lags = L, Var_Name = "BC")
+    P_L <- Lag_X(X = P, Lags = L, Var_Name = "P")
+    
+    print(xtable(cor(B_L,D_L,"na.or.complete") ))
+    print(xtable(cor(BC_L,D_L,"na.or.complete")))
+    print(xtable(cor(P_L,D_L,"na.or.complete")))
+
+    cat("\n\\newpage\n")
+    
+    
+  }
+
+@
+
+
+\section{ets, nnetar, arimax on Cat products}
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+Xreg_Var <- "DEP_EQUIP_CAP"
+
+for(i in Classe_Prod) {
+  for(j in 1:3) {
+
+    # Section et sous section du doc latex
+    
+    sub_name <- paste(c(strsplit(i[2], "_")[[1]], j), collapse="\\AaA ")
+    
+    cat("\\subsection{",sub_name,"}\n",sep="")
+    cat("\\subsubsection{plots for ",sub_name,"}\n",sep="")
+    
+    # S
+    S_Name <- paste(i[2], j, sep = "_")
+    S <- Cat[[paste(i[1], j, sep = "_")]][, i[2]]
+    Xreg <- X[[paste(Xreg_Var, j, sep = "_")]]
+    
+    # Out of sample and First Obs
+    
+    OOS  <- as.numeric(Inputs[Inputs$Input == "Out_of_Sample", "Val"])
+    FOBS <- as.numeric(Inputs[Inputs$Input == "First_Obs", "Val"])
+
+    OOS <- 2 * OOS/j
+    FOBS <- FOBS/j * 5
+    
+    #Exponential smoothing
+    fit.ets <- Model_and_Plot(S = S, S_Name = S_Name, Model = "ets", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample
+    fit.ets.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "ets", Horizon_year = 2)
+    
+
+    
+    #Exponential smoothing FObs
+    
+    fit.ets.fobs <- Model_and_Plot(S = S, S_Name = S_Name, FOBS = FOBS, Model = "ets", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample FObs
+    
+    fit.ets.fobs.oos <- Model_and_Plot(S = S, S_Name = S_Name, FOBS = FOBS, OOS = OOS, Model = "ets", Horizon_year = 2)
+    
+    #Arimax
+    fit.arimax <- Model_and_Plot(S = S, S_Name = S_Name, Model = "arimax",Xreg = Xreg, Dummy = TRUE, Horizon_year = 1)
+    
+    #Arimax out of sample
+    fit.arimax.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "arimax", Xreg = Xreg, Dummy = TRUE, Horizon_year = 2)
+    
+    
+    #Arimax FObs
+    fit.arimax.fobs <- Model_and_Plot(S = S, S_Name = S_Name, FOBS = FOBS, Model = "arimax",Xreg = Xreg, Dummy = TRUE, Horizon_year = 1)
+    
+    #Arimax FObs out of sample
+    fit.arimax.fobs.oos <- Model_and_Plot(S = S, S_Name = S_Name, FOBS = FOBS, OOS = OOS, Model = "arimax", Xreg = Xreg, Dummy = TRUE, Horizon_year = 2)
+    
+    
+    #Exponential smoothing
+    fit.nnetar <- Model_and_Plot(S = S, S_Name = S_Name, Model = "nnetar", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample
+    fit.nnetar.oos <- Model_and_Plot(S = S, S_Name = S_Name, OOS = OOS, Model = "nnetar", Horizon_year = 2)
+    
+ 
+    #Exponential smoothing FObs
+    
+    fit.nnetar.fobs <- Model_and_Plot(S = S, S_Name = S_Name, FOBS = FOBS, Model = "nnetar", Horizon_year = 1)
+    
+    #Exponential smoothing out_of_sample FObs
+    
+    fit.nnetar.fobs.oos <- Model_and_Plot(S = S, S_Name = S_Name, FOBS = FOBS, OOS = OOS, Model = "nnetar", Horizon_year = 2)
+    
+ 
+    
+    
+    
+    
+    #Plots:
+    grid.arrange(fit.ets.oos$Plot, fit.ets$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.ets.fobs.oos$Plot, fit.ets.fobs$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+
+    grid.arrange(fit.arimax.oos$Plot, fit.arimax$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+
+    grid.arrange(fit.arimax.fobs.oos$Plot, fit.arimax.fobs$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    grid.arrange(fit.nnetar.oos$Plot, fit.nnetar$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    grid.arrange(fit.nnetar.fobs.oos$Plot, fit.nnetar.fobs$Plot, nrow = 2, ncol = 1)
+    cat("\n\\newpage\n")
+    
+    
+    #Sims quantiles:
+    
+    if(j == 1){
+        
+    tmp.ets <- data.frame(Quant_Sim(Model = fit.ets$Model))
+    names(tmp.ets) <- paste(S_Name,"Q_ets")
+    
+    tmp.arimax <- data.frame(Quant_Sim(Model = fit.arimax$Model))
+    names(tmp.arimax) <- paste(S_Name,"Q_arimax")
+    
+    tmp <- cbind(tmp.ets,tmp.arimax)
+    tmp <- t(tmp)
+    
+    Simulations[[S_Name]] <- tmp
+    
+    }
+    
+    
+  }
+}
+    
+@
+
+\section{Simulation}
+
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+tmp <- Simulations[[1]]
+
+  for(j in 2:length(Simulations)) {
+    
+    tmp <- rbind(tmp,Simulations[[j]] )
+  }
+
+print(xtable(tmp))
+
+@
+
+
+\end{document}
+

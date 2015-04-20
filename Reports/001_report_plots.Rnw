@@ -1,0 +1,566 @@
+<<echo=FALSE,error=FALSE,message=FALSE,warning=FALSE>>=
+
+library(tikzDevice)
+library(forecast)
+library(xtable)
+library(ggplot2)
+library(gridExtra)
+library(XLConnect)
+
+
+# library(ggplot2)
+# library(knitr)
+
+load("../Data/Data.RData")
+
+Classe_Prod <- list(c("BHL", "BHL_CAT"),
+                    c("BHL", "BHL"),
+                    c("SSL", "SSL216"),
+                    c("SSL", "SSL216_CAT"))
+
+# Classe_Prod <- list(c("BHL", "BHL"))
+@
+
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+
+\begin{document}
+
+
+\tableofcontents
+
+\newpage
+
+\section{Notes}
+
+\subsection{Model description ETS(U,V,W)}
+\begin{itemize}
+  \item The first letter U denotes the error type: A (Additive), M (Multiplicative)
+  \item The second letter V denotes the trend type: N (None), A (Additive), Ad (Additive damped), M (Multiplicative), Md (Multiplicative damped)
+  \item The third letter W denotes the season type: N (None), A (Additive), M (Multiplicative)
+\end{itemize}
+
+\subsection{Model description ARIMA(p,d,q)(P,D,Q)m}
+\begin{itemize}
+  \item p is the AR order
+  \item d is the degree of differencing
+  \item q is the MA order
+  \item P is the seasonal AR order
+  \item D is the seasonal degree of differencing
+  \item Q is the seasonal MA order
+  \item m is the seasonal frequency
+\end{itemize}
+
+\subsection{Model description HoltWinters}
+\begin{itemize}
+  \item alpha is the parameter of Holt-Winters Filter
+  \item beta is the parameter of Holt-Winters Filter
+  \item gamma is a parameter used for the seasonal component
+  \item seasonal: ADDitive or MULtiplicative
+
+\end{itemize}
+
+\newpage
+
+\section{Results for automatic ets and ARIMA on Cat products}
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+ArimaX <- "DEP_EQUIP_CAP"
+
+for(i in Classe_Prod) {
+  for(j in c(1, 2, 3, 4, 6, 12)) {
+
+    # Section et sous section du doc latex
+    
+    sub_name <- paste(c(strsplit(i[2], "_")[[1]], j), collapse="\\AaA ")
+    
+    cat("\\subsection{",sub_name,"}\n",sep="")
+    cat("\\subsubsection{plots for ",sub_name,"}\n",sep="")
+    
+    # Models
+    My_S <- Cat[[paste(i[1], j, sep = "_")]][, i[2]]
+    
+    My_S_max <- max(My_S)
+    My_S_min <- min(My_S)
+      
+    OOS_Period <- as.numeric(Inputs[Inputs$Input == "Out_of_Sample", "Val"])*2
+    FObs_Period <- as.numeric(Inputs[Inputs$Input == "First_Obs", "Val"])
+#     OOS_Period <- 0
+    if(j>4) OOS_Period <- 0
+    
+    My_S_t_end <- time(My_S)[length(My_S) -ceiling(OOS_Period/j)]
+    My_S_t_start <- time(My_S)[min(length(My_S) -ceiling(OOS_Period/j)+1,length(My_S))]
+    My_S_Fobs_end <- time(My_S)[ceiling(FObs_Period/j)]
+    
+    My_S_Sample <- window(My_S, end = My_S_t_end)
+    My_S_OOSample <- window(My_S, start = My_S_t_start)
+    
+    fit <- ets(My_S_Sample)
+    fit_fore <- forecast(fit, h = 12/j * 4)
+    My_S_Sample_ArimaX <- ts.intersect(My_S_Sample,X[[paste(ArimaX, j, sep = "_")]])[,1] 
+    My_ArimaX <- ts.intersect(My_S_Sample,X[[paste(ArimaX, j, sep = "_")]])[,2] 
+    My_Xreg_oos <- ts.intersect(My_S_OOSample,X[[paste(ArimaX, j, sep = "_")]])[,2] 
+#        fit.ar <- auto.arima(My_S_Sample)
+    fit.Xreg <- auto.arima(My_ArimaX)
+    fit.ar <- auto.arima(My_S_Sample_ArimaX, xreg = My_ArimaX)
+    fit.ar_fore <- forecast(fit.ar,xreg = forecast(fit.Xreg, h = 12/j * 4)$mean, h = 12/j * 4)
+
+    My_S.df <- data.frame(t = time(My_S),y = My_S)
+    My_S.df.fitted <- data.frame(t = time(fit$fitted),y = fit$fitted)
+    
+    My_S.df.ar.fitted <- data.frame(t = time(fitted(fit.ar)),y = fitted(fit.ar))
+    
+    if(j<=2) {
+      fit_oos <- ets(My_S_OOSample, model = fit)
+      fit.ar_oos <- Arima(My_S_OOSample, model = fit.ar, xreg = My_Xreg_oos)
+      My_S.df.fitted_oos <- data.frame(t = time(fit_oos$fitted),y = fit_oos$fitted)
+      My_S.df.ar.fitted_oos <- data.frame(t = time(fitted(fit.ar_oos)),y = fitted(fit.ar_oos))
+    }
+      
+    My_S.df.fit_fore <- data.frame(t = time(fit_fore$mean), f_mean = fit_fore$mean,
+                      f_lo_80 = fit_fore$lower[,1], f_up_80 = fit_fore$upper[,1],
+                      f_lo_95 = fit_fore$lower[,2], f_up_95 = fit_fore$upper[,2])
+
+    My_S.df.fit.ar_fore <- data.frame(t = time(fit.ar_fore$mean), f_mean = fit.ar_fore$mean,
+                      f_lo_80 = fit.ar_fore$lower[,1], f_up_80 = fit.ar_fore$upper[,1],
+                      f_lo_95 = fit.ar_fore$lower[,2], f_up_95 = fit.ar_fore$upper[,2])
+
+
+    # Nom variables
+  
+    Arima_Model <- paste("$ARIMAX(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")_{",
+                         fit.ar$arma[5],"}$",
+                         sep="")
+
+    Arima_Model_t <- paste("ARIMAX(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")",
+                         fit.ar$arma[5],
+                         sep="")
+    
+    
+  p.ets <- ggplot(data= My_S.df,aes(x= t , y=  My_S))  +
+  geom_rect(xmin=2006, xmax = My_S_t_end, ymin = My_S_min, ymax = My_S_max, fill = "#ccffff" ,alpha = 0.1)+
+  geom_rect(xmax=2015, xmin = My_S_t_start, ymin = My_S_min, ymax = My_S_max , fill = "#ffff00" ,alpha = 0.1)+
+  geom_vline(xintercept = 2006:2018, colour = "black", alpha = .3) +
+  geom_vline(xintercept = 2011, colour = "white", size = 2) +
+  geom_line(colour = "blue") +
+  geom_point(colour = "white", size = 1) +
+  geom_line(data =My_S.df.fitted,aes(x = t, y = y), colour = "black")
+
+ if(j<=2) p.ets <- p.ets + geom_line(data =My_S.df.fitted_oos,aes(x = t, y = y), colour = "black") 
+
+p.ets <- p.ets +  geom_line(data = My_S.df.fit_fore[My_S.df.fit_fore$t>=2014,], aes(x = t, y = f_mean), colour = "red" )+
+  geom_ribbon(data = My_S.df.fit_fore[My_S.df.fit_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .2, fill = "red")+
+  geom_ribbon(data = My_S.df.fit_fore[My_S.df.fit_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_95, ymax = f_up_95), alpha = .15, fill = "red")+
+  scale_x_continuous(breaks = 2006:2018)+
+  scale_y_continuous(breaks = seq(My_S_min,My_S_max,2))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = fit$method)
+
+  p.ar <- ggplot(data= My_S.df,aes(x= t , y=  My_S))  +
+  geom_rect(xmin=2006, xmax = My_S_t_end, ymin = My_S_min, ymax = My_S_max, fill = "#ccffff" ,alpha = 0.1)+
+  geom_rect(xmax=2015, xmin = My_S_t_start, ymin = My_S_min, ymax = My_S_max, fill = "#ffff00" ,alpha = 0.1)+
+  geom_vline(xintercept = 2006:2018, colour = "black", alpha = .3) +
+  geom_vline(xintercept = 2011, colour = "white", size = 2) +
+  geom_line(colour = "blue") +
+  geom_point(colour = "white", size = 1) +
+  geom_line(data =My_S.df.ar.fitted,aes(x = t, y = y), colour = "black")
+  
+if(j<=2) p.ar <- p.ar + geom_line(data =My_S.df.ar.fitted_oos,aes(x = t, y = y), colour = "black") 
+
+  p.ar <- p.ar + geom_line(data = My_S.df.fit.ar_fore[My_S.df.fit.ar_fore$t>=2014,], aes(x = t, y = f_mean), colour = "red" )+
+  geom_ribbon(data = My_S.df.fit.ar_fore[My_S.df.fit.ar_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .2, fill = "red")+
+  geom_ribbon(data = My_S.df.fit.ar_fore[My_S.df.fit.ar_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_95, ymax = f_up_95), alpha = .15, fill = "red")+
+  scale_x_continuous(breaks = 2006:2018)+
+  scale_y_continuous(breaks = seq(My_S_min,My_S_max,2))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = Arima_Model_t)
+
+  grid.arrange(p.ets,p.ar, nrow=2, ncol=1)  
+   
+
+    cat("\n\\newpage\n")
+
+
+  
+    cat("\\subsubsection{Outputs for ",sub_name,"}\n",sep="")
+
+    cat("\\begin{multicols}{2}\n")
+  
+    # ETS outputs
+
+    cat("\n\n$",fit$method,"$\n")
+    
+    cat("\\begin{enumerate}\n")
+
+          cat("\\item parameters:\n")
+
+              cat("\\begin{itemize}\n")
+                  for(k in intersect(names(fit$par),c("alpha", "beta", "gamma", "phi", "lambda"))) {
+                    cat("\\item ", k,": ", fit$par[k],"\n")
+                  }
+              cat("\\end{itemize}\n")
+              cat("\\item init state:\n")
+              cat("\\begin{itemize}\n")
+                  for(k in names(fit$initstate)) {
+                    cat("\\item ", k,": ", fit$initstate[k],"\n")
+                  }
+              cat("\\end{itemize}\n")
+      
+          cat("\\item informations critereas:\n")
+      
+              cat("\\begin{itemize}\n")
+                  for(k in c("loglik", "aic", "bic", "aicc", "mse", "amse", "sigma2")) {
+                    cat("\\item ", k,": ", fit[[k]],"\n")
+                  }
+              cat("\\end{itemize}\n")
+    if(j <= 2) {
+      cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(fit_oos))[[2]]) {
+                cat("\\item ", k,": ", accuracy(fit_oos)[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+    }
+          
+    cat("\\end{enumerate}\n")
+
+    cat("\n\\columnbreak\n")
+    
+    # !!! p, q, P, Q, m, d, D
+
+        
+    # ARIMA outputs
+
+    cat("\n\n",Arima_Model,"\n")
+
+    cat("\\begin{enumerate}\n")
+
+          cat("\\item informations critereas:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("loglik", "aic", "bic", "aicc", "sigma2")) {
+                cat("\\item ", k,": ", fit.ar[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+          
+          cat("\n\\item coefficients:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in names(fit.ar$coef)) {
+                if(k=="My_ArimaX") {
+                  cat("\\item ",
+                  paste(c(strsplit(ArimaX, "_")[[1]], j), collapse="\\AaA ")   ,": ", fit.ar$coef[k],"\n")
+                } else cat("\\item ", k,": ", fit.ar$coef[k],"\n")
+              }
+              cat("\\end{itemize}\n")
+     
+  if(j <= 2) {
+      cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(fit.ar_oos))[[2]]) {
+                cat("\\item ", k,": ", accuracy(fit.ar_oos)[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+    } 
+      
+              
+    cat("\\end{enumerate}\n")
+     
+    cat("\\end{multicols}\n")
+    
+    My_Table <- cbind(My_S.df.fit_fore,My_S.df.fit.ar_fore[,-1])   
+    names(My_Table) <- c("time", "ETS ", "lo 80", "up 80", "lo 95", "up 95", "ARIMAX ", "lo 80", "up 80", "lo 95", "up 95")
+    print(xtable(My_Table[1: min(nrow(My_Table),30),]),include.rownames = FALSE , digits = 2)
+      
+    cat("\n\\newpage\n")
+    
+    wb <- loadWorkbook(filename = "Forecast.xlsx", create = TRUE)
+    createSheet(wb, name = paste(i[1], i[2], j, sep="_"))
+    writeWorksheet(wb,data = My_Table, sheet = paste(i[1], i[2], j, sep="_"))
+    saveWorkbook(wb)
+ }
+}
+
+@
+
+
+\section{Results for automatic ets and ARIMA on Xregs}
+
+<<echo=FALSE,results='asis',message=FALSE,warning=FALSE, eval=TRUE, fig.height=9.5, error=TRUE>>=
+
+
+for(i in names(X)) {
+
+    # Section et sous section du doc latex
+    j <- as.numeric(substr(i,start = nchar(i), stop = nchar(i)))
+    sub_name <- paste(strsplit(i, "_")[[1]], collapse="\\AaA ")
+    
+    cat("\\subsection{",sub_name,"}\n",sep="")
+    cat("\\subsubsection{plots for ",sub_name,"}\n",sep="")
+    
+    # Models
+    My_S <- X[[i]]
+    
+    My_S_max <- max(My_S)
+    My_S_min <- min(My_S)
+      
+    OOS_Period <- as.numeric(Inputs[Inputs$Input == "Out_of_Sample", "Val"])
+    FObs_Period <- as.numeric(Inputs[Inputs$Input == "First_Obs", "Val"])
+    if(j>4) OOS_Period <- 0
+#     OOS_Period <- 0
+    
+    My_S_t_end <- time(My_S)[length(My_S) -ceiling(OOS_Period/j)]
+    My_S_t_start <- time(My_S)[min(length(My_S) -ceiling(OOS_Period/j)+1,length(My_S))]
+    My_S_Fobs_end <- time(My_S)[ceiling(FObs_Period/j)]
+    
+    My_S_Sample <- window(My_S, end = My_S_t_end)
+    My_S_OOSample <- window(My_S, start = My_S_t_start)
+    
+    fit <- ets(My_S_Sample)
+    fit_fore <- forecast(fit, h = 12/j * 4)
+#     My_S_Sample_ArimaX <- ts.intersect(My_S_Sample,X[[paste(ArimaX, j, sep = "_")]])[,1] 
+    My_ArimaX <- ts.intersect(My_S_Sample,X[[paste(ArimaX, j, sep = "_")]])[,2] 
+    My_Xreg_oos <- ts.intersect(My_S_OOSample,X[[paste(ArimaX, j, sep = "_")]])[,2] 
+    fit.ar <- auto.arima(My_S_Sample)
+    fit.Xreg <- auto.arima(My_ArimaX)
+#     fit.ar <- auto.arima(My_S_Sample_ArimaX, xreg = My_ArimaX)
+    fit.ar_fore <- forecast(fit.ar, h = 12/j * 4)
+
+    My_S.df <- data.frame(t = time(My_S),y = My_S)
+    My_S.df.fitted <- data.frame(t = time(fit$fitted),y = fit$fitted)
+    
+    My_S.df.ar.fitted <- data.frame(t = time(fitted(fit.ar)),y = fitted(fit.ar))
+    
+    if(j<=2) {
+      fit_oos <- ets(My_S_OOSample, model = fit)
+      fit.ar_oos <- Arima(My_S_OOSample, model = fit.ar)
+      My_S.df.fitted_oos <- data.frame(t = time(fit_oos$fitted),y = fit_oos$fitted)
+      My_S.df.ar.fitted_oos <- data.frame(t = time(fitted(fit.ar_oos)),y = fitted(fit.ar_oos))
+    }
+      
+    My_S.df.fit_fore <- data.frame(t = time(fit_fore$mean), f_mean = fit_fore$mean,
+                      f_lo_80 = fit_fore$lower[,1], f_up_80 = fit_fore$upper[,1],
+                      f_lo_95 = fit_fore$lower[,2], f_up_95 = fit_fore$upper[,2])
+
+    My_S.df.fit.ar_fore <- data.frame(t = time(fit.ar_fore$mean), f_mean = fit.ar_fore$mean,
+                      f_lo_80 = fit.ar_fore$lower[,1], f_up_80 = fit.ar_fore$upper[,1],
+                      f_lo_95 = fit.ar_fore$lower[,2], f_up_95 = fit.ar_fore$upper[,2])
+
+
+    # Nom variables
+  
+    Arima_Model <- paste("$ARIMA(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")_{",
+                         fit.ar$arma[5],"}$",
+                         sep="")
+
+    Arima_Model_t <- paste("ARIMA(",
+                         fit.ar$arma[1], "," ,
+                         fit.ar$arma[6], ",",
+                         fit.ar$arma[2], ")(",
+                         fit.ar$arma[3], ",",
+                         fit.ar$arma[7], ",",
+                         fit.ar$arma[4], ")",
+                         fit.ar$arma[5],
+                         sep="")
+    
+    
+  p.ets <- ggplot(data= My_S.df,aes(x= t , y=  My_S))  +
+  geom_rect(xmin=2006, xmax = My_S_t_end, ymin = My_S_min, ymax = My_S_max, fill = "#ccffff" ,alpha = 0.1)+
+  geom_rect(xmax=2015, xmin = My_S_t_start, ymin = My_S_min, ymax = My_S_max , fill = "#ffff00" ,alpha = 0.1)+
+  geom_vline(xintercept = 2006:2018, colour = "black", alpha = .3) +
+  geom_vline(xintercept = 2011, colour = "white", size = 2) +
+  geom_line(colour = "blue") +
+  geom_point(colour = "white", size = 1) +
+  geom_line(data =My_S.df.fitted,aes(x = t, y = y), colour = "black")
+
+ if(j<=2) p.ets <- p.ets + geom_line(data =My_S.df.fitted_oos,aes(x = t, y = y), colour = "black") 
+
+p.ets <- p.ets +  geom_line(data = My_S.df.fit_fore[My_S.df.fit_fore$t>=2014,], aes(x = t, y = f_mean), colour = "red" )+
+  geom_ribbon(data = My_S.df.fit_fore[My_S.df.fit_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .2, fill = "red")+
+  geom_ribbon(data = My_S.df.fit_fore[My_S.df.fit_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_95, ymax = f_up_95), alpha = .15, fill = "red")+
+  scale_x_continuous(breaks = 2006:2018)+
+  scale_y_continuous(breaks = seq(My_S_min,My_S_max,2))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = fit$method)
+
+  p.ar <- ggplot(data= My_S.df,aes(x= t , y=  My_S))  +
+  geom_rect(xmin=2006, xmax = My_S_t_end, ymin = My_S_min, ymax = My_S_max, fill = "#ccffff" ,alpha = 0.1)+
+  geom_rect(xmax=2015, xmin = My_S_t_start, ymin = My_S_min, ymax = My_S_max, fill = "#ffff00" ,alpha = 0.1)+
+  geom_vline(xintercept = 2006:2018, colour = "black", alpha = .3) +
+  geom_vline(xintercept = 2011, colour = "white", size = 2) +
+  geom_line(colour = "blue") +
+  geom_point(colour = "white", size = 1) +
+  geom_line(data =My_S.df.ar.fitted,aes(x = t, y = y), colour = "black")
+  
+if(j<=2) p.ar <- p.ar + geom_line(data =My_S.df.ar.fitted_oos,aes(x = t, y = y), colour = "black") 
+
+  p.ar <- p.ar + geom_line(data = My_S.df.fit.ar_fore[My_S.df.fit.ar_fore$t>=2014,], aes(x = t, y = f_mean), colour = "red" )+
+  geom_ribbon(data = My_S.df.fit.ar_fore[My_S.df.fit.ar_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_80, ymax = f_up_80), alpha = .2, fill = "red")+
+  geom_ribbon(data = My_S.df.fit.ar_fore[My_S.df.fit.ar_fore$t>=2015,],aes(y = f_mean, ymin = f_lo_95, ymax = f_up_95), alpha = .15, fill = "red")+
+  scale_x_continuous(breaks = 2006:2018)+
+  scale_y_continuous(breaks = seq(My_S_min,My_S_max,2))+
+  xlab(NULL)+
+  ylab(NULL)+
+  labs(title = Arima_Model_t)
+
+  grid.arrange(p.ets,p.ar, nrow=2, ncol=1)  
+   
+
+    cat("\n\\newpage\n")
+
+
+  
+    cat("\\subsubsection{Outputs for ",sub_name,"}\n",sep="")
+
+    cat("\\begin{multicols}{2}\n")
+  
+    # ETS outputs
+
+    cat("\n\n$",fit$method,"$\n")
+    
+    cat("\\begin{enumerate}\n")
+
+          cat("\\item parameters:\n")
+
+              cat("\\begin{itemize}\n")
+                  for(k in intersect(names(fit$par),c("alpha", "beta", "gamma", "phi", "lambda"))) {
+                    cat("\\item ", k,": ", fit$par[k],"\n")
+                  }
+              cat("\\end{itemize}\n")
+              cat("\\item init state:\n")
+              cat("\\begin{itemize}\n")
+                  for(k in names(fit$initstate)) {
+                    cat("\\item ", k,": ", fit$initstate[k],"\n")
+                  }
+              cat("\\end{itemize}\n")
+      
+          cat("\\item informations critereas:\n")
+      
+              cat("\\begin{itemize}\n")
+                  for(k in c("loglik", "aic", "bic", "aicc", "mse", "amse", "sigma2")) {
+                    cat("\\item ", k,": ", fit[[k]],"\n")
+                  }
+              cat("\\end{itemize}\n")
+    if(j <= 2) {
+      cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(fit_oos))[[2]]) {
+                cat("\\item ", k,": ", accuracy(fit_oos)[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+    }
+          
+    cat("\\end{enumerate}\n")
+
+    cat("\n\\columnbreak\n")
+    
+    # !!! p, q, P, Q, m, d, D
+
+        
+    # ARIMA outputs
+
+    cat("\n\n",Arima_Model,"\n")
+
+    cat("\\begin{enumerate}\n")
+
+          cat("\\item informations critereas:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in c("loglik", "aic", "bic", "aicc", "sigma2")) {
+                cat("\\item ", k,": ", fit.ar[[k]],"\n")
+              }
+              cat("\\end{itemize}\n")
+          
+          cat("\n\\item coefficients:\n")
+              
+              cat("\\begin{itemize}\n")
+              for(k in names(fit.ar$coef)) {
+                if(k=="My_ArimaX") {
+                  cat("\\item ",
+                  paste(c(strsplit(ArimaX, "_")[[1]], j), collapse="\\AaA ")   ,": ", fit.ar$coef[k],"\n")
+                } else cat("\\item ", k,": ", fit.ar$coef[k],"\n")
+              }
+              cat("\\end{itemize}\n")
+     
+  if(j <= 2) {
+      cat("\\item accuracy:\n")
+
+              cat("\\begin{itemize}\n")
+              for(k in dimnames(accuracy(fit.ar_oos))[[2]]) {
+                cat("\\item ", k,": ", accuracy(fit.ar_oos)[,k],"\n")
+              }
+              cat("\\end{itemize}\n")
+      
+    } 
+      
+              
+    cat("\\end{enumerate}\n")
+     
+    cat("\\end{multicols}\n")
+    
+    My_Table <- cbind(My_S.df.fit_fore,My_S.df.fit.ar_fore[,-1])   
+    names(My_Table) <- c("time", "ETS ", "lo 80", "up 80", "lo 95", "up 95", "ARIMA ", "lo 80", "up 80", "lo 95", "up 95")
+    print(xtable(My_Table[1: min(nrow(My_Table),30),]),include.rownames = FALSE , digits = 2)
+      
+    cat("\n\\newpage\n")
+    
+    wb <- loadWorkbook(filename = "Forecast.xlsx", create = TRUE)
+    createSheet(wb, name = i)
+    writeWorksheet(wb,data = My_Table, sheet = i)
+    saveWorkbook(wb)
+
+}
+
+@
+
+
+
+\end{document}

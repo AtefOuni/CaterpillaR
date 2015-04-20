@@ -1,0 +1,171 @@
+<<fig=FALSE,echo=FALSE,eval=TRUE,message=FALSE,error=FALSE,warning=FALSE>>=
+library(knitr)
+thm = knit_theme$get("edit-matlab")
+thm = knit_theme$get("acid")
+knit_theme$set(thm)
+
+@
+
+
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[english,francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\setlength{\voffset}{-2.5 cm}
+\setlength{\textheight}{26 cm} 
+\setlength{\textwidth}{18.5 cm}
+\setlength{\oddsidemargin}{-1 cm}
+\setlength{\evensidemargin}{-1 cm}
+
+\setlength{\columnsep}{20pt}
+\setlength{\columnseprule}{0.5pt}
+
+\setcounter{tocdepth}{2}
+
+\newcommand{\AaA}{\_}
+
+\begin{document}
+
+Loading data for accuracy purpose
+
+<<echo=TRUE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE>>=
+
+library(forecast)
+library(xtable)
+
+load("../Data/Data.RData")
+
+X <- Cat[["BHL_2"]][,"BHL"]
+
+X
+@
+
+ETS model results and accuracy
+
+<<echo=TRUE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE>>=
+
+Ets_models <- c("ANN", "ANA", "ANM", "AAN", "AAA", "AAM", "AMN", "AMA", "AMM", 
+                "MNN", "MNA", "MNM", "MAN", "MAA", "MAM", "MMN", "MMA", "MMM")
+
+X_Models <- list()
+
+
+#ETS model results:
+options(stringsAsFactors = FALSE, digits = 2)
+I <- TRUE 
+for(k in Ets_models) {
+  for(j in c(TRUE, FALSE)) {
+          X_ets <- try(ets(X,model = k, damped = j),silent = TRUE)
+          if(class(X_ets)=="ets"){
+          X_Models[[X_ets$method]] <- X_ets
+          Acc <- accuracy(X_ets)
+          if(I){
+            X_results <- data.frame(LogLik = X_ets$loglik,
+                                   AIC = X_ets$aic,
+                                   AICC = X_ets$aicc,
+                                   BIC = X_ets$bic,
+                                   Sigma = sqrt(X_ets$sigma2),
+                                   ME = Acc[,"ME"],
+                                   RMSE = Acc[,"RMSE"],
+                                   MAE = Acc[,"MAE"],
+                                   MPE = Acc[,"MPE"],
+                                   MAPE = Acc[,"MAPE"],
+                                   MASE = Acc[,"MASE"],
+                                   ACF1 = Acc[,"ACF1"])
+            I <- FALSE 
+          
+          } else {
+            X_results <- rbind(X_results, c(LogLik = X_ets$loglik,
+                                   AIC = X_ets$aic,
+                                   AICC = X_ets$aicc,
+                                   BIC = X_ets$bic,
+                                   Sigma = sqrt(X_ets$sigma2),
+                                   ME = Acc[,"ME"],
+                                   RMSE = Acc[,"RMSE"],
+                                   MAE = Acc[,"MAE"],
+                                   MPE = Acc[,"MPE"],
+                                   MAPE = Acc[,"MAPE"],
+                                   MASE = Acc[,"MASE"],
+                                   ACF1 = Acc[,"ACF1"])) 
+          }
+        }
+  }
+  
+}
+
+View(cbind(Model = names(X_Models) ,X_results))
+
+# ETS accuracy
+accuracy(X_ets)
+
+X_ets <- ets(X)
+X_ets_pr <- ets(window(X,start = 2011))
+
+ts.plot(X,X_ets$fitted,X_ets_pr$fitted,lty=1:3)
+@
+
+\newpage
+
+Mean Error(ME), Mean Absolute Error(MAE), Mean Squared Error(MSE) and Root Mean Squared Error (RMSE)  
+
+<<echo=TRUE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE>>=
+
+X_fitted <- X_ets$fitted
+X_error <- X - X_fitted
+
+# Mean Error(ME):
+X_ME <- mean(X_error)
+X_ME
+
+# Mean Absolute Error(MAE):
+X_MAE <- mean(abs(X_error))
+X_MAE
+
+# Mean Squared Error(MSE):
+X_MSE <- mean(abs(X_error^2))
+X_MSE
+
+#Root Mean Squared Error (RMSE):
+X_RMSE <- sqrt(X_MSE)
+X_RMSE
+
+@
+
+
+Mean Percentage Error(MPE), Mean Absolute Percentage Error(MAPE) and Mean Absolute Scaled Error(MASE)  
+
+<<echo=TRUE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE>>=
+
+X_PE <- 100 * X_error / X
+
+#Mean Percentage Error(MPE):
+X_MPE <- mean(X_PE)
+X_MPE
+
+#Mean Absolute Percentage Error(MAPE):
+X_MAPE <- mean(abs(X_PE))
+X_MAPE
+
+#Mean Absolute Scaled Error(MASE):
+X_QE <- X_error / (sum(abs(diff(X)))/(length(X)-1))
+X_MASE <- mean(abs(X_QE))
+X_MASE
+
+@
+
+Autocorrelation of errors at lag 1 (ACF1) 
+
+<<echo=TRUE, error=FALSE, message=FALSE, warning=FALSE, eval=TRUE>>=
+
+#Autocorrelation of errors at lag 1 (ACF1):
+ACF1 <- acf(X_error, plot = FALSE)$acf[2]
+ACF1
+@
+
+\end{document}

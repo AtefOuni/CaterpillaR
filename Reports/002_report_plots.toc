@@ -1,0 +1,40 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}DEP\_EQUIP\_CAP}{3}{section.1}
+\contentsline {section}{\numberline {2}Results for automatic ets and ARIMA on Cat products}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}BHL\_CAT\_1}{3}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}plots for BHL\_CAT\_1}{3}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Outputs for BHL\_CAT\_1}{5}{subsubsection.2.1.2}
+\contentsline {subsection}{\numberline {2.2}BHL\_CAT\_2}{6}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}plots for BHL\_CAT\_2}{6}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Outputs for BHL\_CAT\_2}{8}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}BHL\_CAT\_3}{9}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}plots for BHL\_CAT\_3}{9}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Outputs for BHL\_CAT\_3}{11}{subsubsection.2.3.2}
+\contentsline {subsection}{\numberline {2.4}BHL\_CAT\_4}{12}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}plots for BHL\_CAT\_4}{12}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Outputs for BHL\_CAT\_4}{14}{subsubsection.2.4.2}
+\contentsline {subsection}{\numberline {2.5}BHL\_CAT\_6}{15}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}plots for BHL\_CAT\_6}{15}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}Outputs for BHL\_CAT\_6}{17}{subsubsection.2.5.2}
+\contentsline {subsection}{\numberline {2.6}BHL\_CAT\_12}{18}{subsection.2.6}
+\contentsline {subsubsection}{\numberline {2.6.1}plots for BHL\_CAT\_12}{18}{subsubsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.2}Outputs for BHL\_CAT\_12}{20}{subsubsection.2.6.2}
+\contentsline {subsection}{\numberline {2.7}BHL\_1}{21}{subsection.2.7}
+\contentsline {subsubsection}{\numberline {2.7.1}plots for BHL\_1}{21}{subsubsection.2.7.1}
+\contentsline {subsubsection}{\numberline {2.7.2}Outputs for BHL\_1}{23}{subsubsection.2.7.2}
+\contentsline {subsection}{\numberline {2.8}BHL\_2}{24}{subsection.2.8}
+\contentsline {subsubsection}{\numberline {2.8.1}plots for BHL\_2}{24}{subsubsection.2.8.1}
+\contentsline {subsubsection}{\numberline {2.8.2}Outputs for BHL\_2}{26}{subsubsection.2.8.2}
+\contentsline {subsection}{\numberline {2.9}BHL\_3}{27}{subsection.2.9}
+\contentsline {subsubsection}{\numberline {2.9.1}plots for BHL\_3}{27}{subsubsection.2.9.1}
+\contentsline {subsubsection}{\numberline {2.9.2}Outputs for BHL\_3}{29}{subsubsection.2.9.2}
+\contentsline {subsection}{\numberline {2.10}BHL\_4}{30}{subsection.2.10}
+\contentsline {subsubsection}{\numberline {2.10.1}plots for BHL\_4}{30}{subsubsection.2.10.1}
+\contentsline {subsubsection}{\numberline {2.10.2}Outputs for BHL\_4}{32}{subsubsection.2.10.2}
+\contentsline {subsection}{\numberline {2.11}BHL\_6}{33}{subsection.2.11}
+\contentsline {subsubsection}{\numberline {2.11.1}plots for BHL\_6}{33}{subsubsection.2.11.1}
+\contentsline {subsubsection}{\numberline {2.11.2}Outputs for BHL\_6}{35}{subsubsection.2.11.2}
+\contentsline {subsection}{\numberline {2.12}BHL\_12}{36}{subsection.2.12}
+\contentsline {subsubsection}{\numberline {2.12.1}plots for BHL\_12}{36}{subsubsection.2.12.1}
+\contentsline {subsubsection}{\numberline {2.12.2}Outputs for BHL\_12}{38}{subsubsection.2.12.2}
+\contentsline {section}{\numberline {3}Results for automatic ets and ARIMA on Xregs}{39}{section.3}
