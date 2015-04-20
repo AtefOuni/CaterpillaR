@@ -9,7 +9,7 @@ FORECAST_COLOR <- colors()[374]
 
 #function:
 
-MPS <- function(S, S_Name ="", OOS = 0, FOBS = 0, Model, Horizon_year = 1, Level = c(.8, .9), NN_Layer =1,
+MPS <- function(S, S_Name ="", OOS = 0, FOBS = 0, Model, Horizon_year = 1, Level = c(.8, .9),
                            Xreg = NULL, Xreg_Name = "",
                            Dummy = FALSE, 
                            Plot = TRUE, Save_Plot = TRUE,Plot_Folder="Plots",
