@@ -62,7 +62,7 @@ legend("topright", inset = .01,
 Uar <- arima(USAccDeaths, order = c(0,1,2), seasonal = list(order=c(0,0,0)))
 str(Uar)
 
-# !!! p, q, P, Q, D, d, m
+# !!! p, q, P, Q, D, d, m   
 
 tmp <- ets(Cat[["BHL_2"]][,"BHL"])
 tmp
